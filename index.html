@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiber Contractors Insurance — Specialized Coverage for Fiber & Network Installers</title>
+<meta name="description" content="Insurance built for fiber optic, low voltage, and network cable contractors. Get a fast quote for General Liability, Workers Comp, Commercial Auto, Umbrella, Inland Marine & Bonds.">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #05080f;
+  --bg2: #080d18;
+  --bg3: #0c1422;
+  --panel: #0f1a2e;
+  --panel2: #132038;
+  --blue: #0066ff;
+  --blue-bright: #2f8cff;
+  --blue-glow: rgba(0, 102, 255, 0.18);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0,212,255,0.12);
+  --white: #ffffff;
+  --text: #c8d8f0;
+  --text-soft: #6a88b0;
+  --border: rgba(255,255,255,0.07);
+  --border-blue: rgba(0,102,255,0.35);
+  --orange: #ff6b00;
+  --green: #00e676;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── FIBER ANIMATION CANVAS ── */
+#fiber-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 300;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background: rgba(5,8,15,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), var(--blue), transparent);
+  opacity: 0.6;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 36px; height: 36px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark svg { width: 36px; height: 36px; }
+
+.logo-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.logo-text span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--cyan);
+  letter-spacing: 0.15em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--cyan); }
+
+.nav-cta {
+  background: var(--blue);
+  color: var(--white) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s !important;
+  box-shadow: 0 0 20px rgba(0,102,255,0.3);
+}
+
+.nav-cta:hover {
+  background: var(--blue-bright) !important;
+  box-shadow: 0 0 30px rgba(0,102,255,0.5) !important;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  align-items: center;
+  gap: 4rem;
+  padding: 8rem 5% 5rem;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,102,255,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-glow-right {
+  position: absolute;
+  top: 30%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.25);
+  color: var(--cyan);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.9rem;
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease both;
+}
+
+.pulse-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.hero-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.hero-title .hl {
+  background: linear-gradient(135deg, var(--blue-bright), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title .block { display: block; }
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 500px;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-trades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.trade-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(0,102,255,0.1);
+  border: 1px solid var(--border-blue);
+  color: #8ab8ff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 0.75rem;
+  border-radius: 2px;
+}
+
+.trade-pill svg { opacity: 0.7; }
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+
+.trust-stat { text-align: center; }
+
+.trust-stat .num {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+
+.trust-stat .lbl {
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.trust-divider {
+  width: 1px; height: 40px;
+  background: var(--border);
+}
+
+/* ── QUOTE FORM ── */
+.quote-form-card {
+  position: relative;
+  z-index: 1;
+  background: var(--panel);
+  border: 1px solid var(--border-blue);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(0,102,255,0.15), 0 30px 60px rgba(0,0,0,0.5);
+  animation: fadeUp 0.6s 0.15s ease both;
+}
+
+.form-top {
+  background: linear-gradient(135deg, var(--blue) 0%, #004cc4 100%);
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-top h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.form-top .free-badge {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
+
+.form-inner {
+  padding: 1.5rem 1.75rem;
+}
+
+.form-inner .sub-text {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.fg {
+  margin-bottom: 0.85rem;
+}
+
+.fg label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.3rem;
+}
+
+.fg label .req { color: var(--cyan); }
+
+.fg input,
+.fg select {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+
+.fg input::placeholder { color: #3a5070; }
+
+.fg input:focus,
+.fg select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0,102,255,0.15);
+}
+
+.fg select { cursor: pointer; color: #8ab8ff; }
+.fg select option { background: var(--bg3); color: var(--text); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+/* Coverage checkboxes */
+.cov-label-row {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.5rem;
+}
+
+.cov-checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.cov-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem;
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.cov-check:hover { border-color: var(--blue); }
+
+.cov-check.on {
+  border-color: var(--blue);
+  background: rgba(0,102,255,0.1);
+}
+
+.cov-check input { display: none; }
+
+.cbox {
+  width: 14px; height: 14px;
+  border: 1.5px solid #2a4060;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.cov-check.on .cbox {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.cov-check.on .cbox::after {
+  content: '';
+  width: 7px; height: 4px;
+  border-left: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+  transform: rotate(-45deg) translateY(-1px);
+  display: block;
+}
+
+.cov-check span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  transition: color 0.15s;
+  line-height: 1.3;
+}
+
+.cov-check.on span { color: #8ab8ff; }
+
+.submit-btn {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, var(--blue), var(--blue-bright));
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(0,102,255,0.4);
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(0,102,255,0.5);
+}
+
+.form-note {
+  font-size: 0.7rem;
+  color: #3a5070;
+  text-align: center;
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+
+.form-note svg { vertical-align: -2px; margin-right: 3px; }
+
+/* Success */
+.success-state {
+  display: none;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.success-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(0,230,118,0.1);
+  border: 2px solid rgba(0,230,118,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.success-state h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.success-state p { font-size: 0.875rem; color: var(--text-soft); line-height: 1.65; }
+
+/* ── COVERAGE SECTION ── */
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 5%;
+}
+
+.section-alt { background: var(--bg2); }
+
+.eyebrow {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--cyan);
+  margin-bottom: 0.6rem;
+}
+
+.section-heading {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: var(--text-soft);
+  font-weight: 300;
+  max-width: 540px;
+  line-height: 1.75;
+  margin-bottom: 3rem;
+}
+
+/* Coverage cards */
+.cov-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.cov-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  cursor: default;
+}
+
+.cov-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,102,255,0.15);
+}
+
+.cov-card-glow {
+  position: absolute;
+  top: 0; right: 0;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(0,102,255,0.1) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.cov-card:hover .cov-card-glow { opacity: 1; }
+
+.cov-icon-wrap {
+  width: 46px; height: 46px;
+  background: rgba(0,102,255,0.1);
+  border: 1px solid var(--border-blue);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--blue-bright);
+}
+
+.cov-card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.cov-card p {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.cov-card .cov-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+
+.cov-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #4a78b0;
+  background: rgba(0,102,255,0.08);
+  border: 1px solid rgba(0,102,255,0.18);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── WHO WE SERVE ── */
+.trades-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.trade-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.trade-card:hover {
+  border-color: var(--border-blue);
+  background: var(--panel2);
+}
+
+.trade-card .icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.trade-card h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+
+.trade-card p {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* ── WHY SECTION ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.why-points { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.why-point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.why-num {
+  width: 36px; height: 36px;
+  border-radius: 4px;
+  background: rgba(0,102,255,0.12);
+  border: 1px solid var(--border-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue-bright);
+  flex-shrink: 0;
+}
+
+.why-point h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.why-point p {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.why-visual {
+  background: var(--panel);
+  border: 1px solid var(--border-blue);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-visual::before {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,102,255,0.12) 0%, transparent 70%);
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-row:last-child { border-bottom: none; }
+
+.data-row .label {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  font-weight: 400;
+}
+
+.data-row .value {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.data-row .value.cyan { color: var(--cyan); }
+.data-row .value.green { color: var(--green); }
+.data-row .value.blue { color: var(--blue-bright); }
+
+/* ── HOW IT WORKS ── */
+.steps-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 3rem;
+}
+
+.steps-row::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan), var(--blue));
+  opacity: 0.25;
+}
+
+.step-item {
+  text-align: center;
+  padding: 0 1.25rem;
+  position: relative;
+}
+
+.step-dot {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 20px rgba(0,102,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.step-item h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.step-item p {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ── TESTIMONIALS ── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.rev-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.75rem;
+  transition: border-color 0.2s;
+}
+
+.rev-card:hover { border-color: var(--border-blue); }
+
+.stars { color: #fbbf24; font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
+
+.rev-card blockquote {
+  font-size: 0.875rem;
+  color: var(--text-soft);
+  font-weight: 300;
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.rev-card blockquote::before {
+  content: '"';
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 3rem;
+  color: var(--border-blue);
+  position: absolute;
+  top: -0.5rem;
+  left: -0.25rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.rev-av {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--panel2);
+  border: 2px solid var(--border-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue-bright);
+  flex-shrink: 0;
+}
+
+.rev-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.rev-trade { font-size: 0.75rem; color: var(--text-soft); }
+
+/* ── CTA BAND ── */
+.cta-band {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #030c1f 0%, #051229 50%, #030c1f 100%);
+  border-top: 1px solid var(--border-blue);
+  border-bottom: 1px solid var(--border-blue);
+  padding: 5rem 5%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(0,102,255,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cta-band h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.cta-band p {
+  font-size: 1rem;
+  color: var(--text-soft);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.cta-big-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--blue);
+  color: var(--white);
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 30px rgba(0,102,255,0.4);
+  position: relative;
+}
+
+.cta-big-btn:hover {
+  background: var(--blue-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(0,102,255,0.5);
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo .logo-text { font-size: 1rem; }
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.footer-links a:hover { color: var(--cyan); }
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: #2a4060;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── TERMS CHECKBOX ── */
+.terms-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  transition: border-color 0.15s;
+  user-select: none;
+}
+
+.terms-check:hover { border-color: var(--border-blue); }
+.terms-check.checked { border-color: var(--blue); background: rgba(0,102,255,0.08); }
+
+.terms-cbox {
+  width: 16px; height: 16px;
+  border: 1.5px solid #2a4060;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: all 0.15s;
+}
+
+.terms-check.checked .terms-cbox {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.terms-check.checked .terms-cbox::after {
+  content: '';
+  width: 8px; height: 5px;
+  border-left: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+  transform: rotate(-45deg) translateY(-1px);
+  display: block;
+}
+
+.terms-check span {
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.terms-check a {
+  color: var(--blue-bright);
+  text-decoration: underline;
+}
+
+.terms-check.error-state { border-color: #ff4444; box-shadow: 0 0 0 3px rgba(255,68,68,0.12); }
+
+.terms-error {
+  font-size: 0.72rem;
+  color: #ff6b6b;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+/* ── TERMS MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--panel);
+  border: 1px solid var(--border-blue);
+  border-radius: 8px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--panel);
+  z-index: 1;
+}
+
+.modal-header h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+}
+
+.modal-close {
+  width: 30px; height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  border-radius: 4px;
+  color: var(--text-soft);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.modal-close:hover { background: rgba(255,255,255,0.15); color: var(--white); }
+
+.modal-content {
+  padding: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.modal-content h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.modal-content h4:first-child { margin-top: 0; }
+
+.modal-content p { margin-bottom: 0.75rem; }
+
+/* ── DISCLOSURE FOOTER BAND ── */
+.disclosure-band {
+  position: relative;
+  z-index: 1;
+  background: #030608;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem 5%;
+}
+
+.disclosure-band p {
+  font-size: 0.72rem;
+  color: #2a4060;
+  line-height: 1.7;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.disclosure-band p + p { margin-top: 0.75rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; padding-top: 7rem; }
+  .quote-form-card { max-width: 520px; }
+  .cov-grid { grid-template-columns: repeat(2, 1fr); }
+  .trades-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps-row { grid-template-columns: repeat(2, 1fr); }
+  .steps-row::before { display: none; }
+  .why-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .cov-grid, .trades-grid, .steps-row, .reviews-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .cov-checks { grid-template-columns: 1fr; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- FIBER ANIMATED BACKGROUND -->
+<canvas id="fiber-bg"></canvas>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="#0066ff" stroke-width="1.5" opacity="0.4"/>
+        <path d="M4 18 Q10 8 18 18 Q26 28 32 18" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M4 22 Q12 12 18 22 Q24 30 32 22" stroke="#0066ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <circle cx="18" cy="18" r="3" fill="#00d4ff"/>
+        <circle cx="4" cy="18" r="2" fill="#0066ff"/>
+        <circle cx="32" cy="18" r="2" fill="#0066ff"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      FiberContractors<br>
+      <span>Insurance.com</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#who-we-serve">Who We Serve</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-right"></div>
+
+  <div class="hero-left">
+    <div class="hero-label">
+      <div class="pulse-dot"></div>
+      Specialized Brokers for the Fiber & Contractor Industry
+    </div>
+
+    <h1 class="hero-title">
+      <span class="block">Insurance Built</span>
+      <span class="block">For <span class="hl">Fiber &amp;</span></span>
+      <span class="block"><span class="hl">Network</span></span>
+      <span class="block">Contractors</span>
+    </h1>
+
+    <p class="hero-desc">
+      You install the infrastructure that connects America. We protect the business behind it. Our licensed brokers specialize in fiber, telecom, and contractor insurance — so we understand your exposures, your contracts, and exactly what coverage you actually need. Fast quotes on General Liability, Workers' Comp, Commercial Auto, Umbrella, Inland Marine, and Bonds.
+    </p>
+
+    <div class="hero-trades">
+      <div class="trade-pill">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+        Fiber Optic Installation
+      </div>
+      <div class="trade-pill">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+        Fiber Splicing
+      </div>
+      <div class="trade-pill">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+        Low Voltage
+      </div>
+      <div class="trade-pill">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+        Network Cabling
+      </div>
+      <div class="trade-pill">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+        Underground OSP
+      </div>
+      <div class="trade-pill">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+        ISP Subcontractors
+      </div>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-stat">
+        <div class="num">Fast</div>
+        <div class="lbl">Quote Turnaround</div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-stat">
+        <div class="num">A</div>
+        <div class="lbl">Rated Carriers</div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-stat">
+        <div class="num">100%</div>
+        <div class="lbl">Free, No Pressure</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTE FORM -->
+  <div class="quote-form-card" id="quote">
+    <div class="form-inner-wrap">
+      <div class="form-top">
+        <h2>🔌 Get Your Free Quote</h2>
+        <div class="free-badge">No Obligation</div>
+      </div>
+      <div class="form-inner" id="formContent">
+        <p class="sub-text">Tell us about your business and we'll match you with the right coverage at the best rate.</p>
+
+        <div class="two-col">
+          <div class="fg">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" id="fname" placeholder="John" />
+          </div>
+          <div class="fg">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" id="lname" placeholder="Smith" />
+          </div>
+        </div>
+
+        <div class="fg">
+          <label>Business / Company Name <span class="req">*</span></label>
+          <input type="text" id="company" placeholder="Smith Fiber LLC" />
+        </div>
+
+        <div class="two-col">
+          <div class="fg">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="john@smithfiber.com" />
+          </div>
+          <div class="fg">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" placeholder="(555) 000-0000" />
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="fg">
+            <label>State <span class="req">*</span></label>
+            <select id="state">
+              <option value="" disabled selected>Select state...</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Annual Revenue (Est.)</label>
+            <select id="revenue">
+              <option value="" disabled selected>Select range...</option>
+              <option>Under $100,000</option>
+              <option>$100K – $250K</option>
+              <option>$250K – $500K</option>
+              <option>$500K – $1M</option>
+              <option>$1M – $5M</option>
+              <option>Over $5M</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label>Primary Trade <span class="req">*</span></label>
+          <select id="trade">
+            <option value="" disabled selected>Select your trade...</option>
+            <option>Fiber Optic Installation (Aerial)</option>
+            <option>Fiber Optic Installation (Underground/OSP)</option>
+            <option>Fiber Splicing & Testing</option>
+            <option>Low Voltage Installation</option>
+            <option>Network / Data Cabling (Inside Plant)</option>
+            <option>Telecommunications Infrastructure</option>
+            <option>ISP / Telecom Subcontractor</option>
+            <option>Multiple Fiber/Network Trades</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <div class="cov-label-row">Coverage Needed <span style="color:var(--cyan)">*</span> (select all that apply)</div>
+          <div class="cov-checks">
+            <label class="cov-check" onclick="toggleCheck(this)">
+              <input type="checkbox" value="General Liability">
+              <div class="cbox"></div>
+              <span>General Liability</span>
+            </label>
+            <label class="cov-check" onclick="toggleCheck(this)">
+              <input type="checkbox" value="Workers Compensation">
+              <div class="cbox"></div>
+              <span>Workers' Comp</span>
+            </label>
+            <label class="cov-check" onclick="toggleCheck(this)">
+              <input type="checkbox" value="Commercial Auto">
+              <div class="cbox"></div>
+              <span>Commercial Auto</span>
+            </label>
+            <label class="cov-check" onclick="toggleCheck(this)">
+              <input type="checkbox" value="Umbrella">
+              <div class="cbox"></div>
+              <span>Umbrella</span>
+            </label>
+            <label class="cov-check" onclick="toggleCheck(this)">
+              <input type="checkbox" value="Inland Marine">
+              <div class="cbox"></div>
+              <span>Inland Marine</span>
+            </label>
+            <label class="cov-check" onclick="toggleCheck(this)">
+              <input type="checkbox" value="Bonds">
+              <div class="cbox"></div>
+              <span>Bonds</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Terms & Consent Checkbox -->
+        <label class="terms-check" id="termsLabel" onclick="toggleTerms()">
+          <div class="terms-cbox" id="termsCbox"></div>
+          <span>I agree to the <a href="#terms-modal" onclick="openTerms(event)">Terms &amp; Conditions</a> and <a href="#terms-modal" onclick="openTerms(event)">Privacy Policy</a>. I consent to being contacted by a licensed insurance broker regarding my quote request. <span style="color:var(--cyan)">*</span></span>
+        </label>
+        <p class="terms-error" id="termsError" style="display:none">Please agree to the Terms &amp; Conditions to continue.</p>
+
+        <button class="submit-btn" onclick="handleSubmit()">
+          ⚡ Request My Free Quote
+        </button>
+        <p class="form-note">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Your information is secure and never sold to third parties. By submitting, you consent to contact from a licensed insurance broker.
+        </p>
+      </div>
+
+      <div class="success-state" id="successState">
+        <div class="success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Quote Request Received!</h3>
+        <p>Thank you! A licensed insurance broker specializing in fiber and network contractor coverage will review your submission and reach out with your personalized coverage options as quickly as possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COVERAGE ── -->
+<section class="section section-alt" id="coverage">
+  <div class="eyebrow">Coverage Options</div>
+  <h2 class="section-heading">Everything Your Fiber Business Needs</h2>
+  <p class="section-sub">From trench work on public roads to inside-plant cable pulls — we cover the full spectrum of fiber and network contractor risks.</p>
+
+  <div class="cov-grid">
+
+    <div class="cov-card">
+      <div class="cov-card-glow"></div>
+      <div class="cov-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>General Liability</h3>
+      <p>Covers third-party bodily injury and property damage during installation, splicing, or network work. Essential if you're digging, trenching, or working on client premises.</p>
+      <div class="cov-tags">
+        <span class="cov-tag">Property Damage</span>
+        <span class="cov-tag">Bodily Injury</span>
+        <span class="cov-tag">Completed Ops</span>
+      </div>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-card-glow"></div>
+      <div class="cov-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Workers' Compensation</h3>
+      <p>Protects your crew working in trenches, on poles, in conduit, and in equipment rooms. Required in most states and critical given the physical risks in fiber work.</p>
+      <div class="cov-tags">
+        <span class="cov-tag">Medical Expenses</span>
+        <span class="cov-tag">Lost Wages</span>
+        <span class="cov-tag">State Required</span>
+      </div>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-card-glow"></div>
+      <div class="cov-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <h3>Commercial Auto</h3>
+      <p>Covers your work trucks, vans, bucket trucks, and cable-pulling rigs whether hauling equipment to a jobsite or driving across a city to your next install.</p>
+      <div class="cov-tags">
+        <span class="cov-tag">Work Trucks</span>
+        <span class="cov-tag">Bucket Trucks</span>
+        <span class="cov-tag">Hired Auto</span>
+      </div>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-card-glow"></div>
+      <div class="cov-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      </div>
+      <h3>Umbrella / Excess</h3>
+      <p>Extra liability coverage on top of your GL and auto policies. Telecom and fiber contractors increasingly need $2M–$5M umbrella limits to satisfy ISP and municipality contracts.</p>
+      <div class="cov-tags">
+        <span class="cov-tag">$1M–$10M Limits</span>
+        <span class="cov-tag">Contract Required</span>
+        <span class="cov-tag">Excess Liability</span>
+      </div>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-card-glow"></div>
+      <div class="cov-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      </div>
+      <h3>Inland Marine</h3>
+      <p>Protects your expensive tools and equipment — OTDR testers, fusion splicers, cable reels, conduit pullers, and more — whether on-site, in transit, or in storage.</p>
+      <div class="cov-tags">
+        <span class="cov-tag">Fusion Splicers</span>
+        <span class="cov-tag">OTDR Equipment</span>
+        <span class="cov-tag">Tools in Transit</span>
+      </div>
+    </div>
+
+    <div class="cov-card">
+      <div class="cov-card-glow"></div>
+      <div class="cov-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      </div>
+      <h3>Contractor Bonds</h3>
+      <p>License bonds, performance bonds, and payment bonds required by municipalities, utilities, and telecom carriers to award you public ROW and telecom infrastructure projects.</p>
+      <div class="cov-tags">
+        <span class="cov-tag">License Bonds</span>
+        <span class="cov-tag">Performance Bonds</span>
+        <span class="cov-tag">Payment Bonds</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── WHO WE SERVE ── -->
+<section class="section" id="who-we-serve">
+  <div class="eyebrow">Who We Serve</div>
+  <h2 class="section-heading">Built for Every Fiber & Network Trade</h2>
+  <p class="section-sub">We understand your work. Whether you're pulling cable through conduit, splicing in a manhole, or installing structured cabling in a data center, we have you covered.</p>
+
+  <div class="trades-grid">
+    <div class="trade-card">
+      <span class="icon">🔦</span>
+      <h4>Fiber Optic Installers</h4>
+      <p>Aerial, underground, and direct-bury fiber installation along public roads and ROW.</p>
+    </div>
+    <div class="trade-card">
+      <span class="icon">✂️</span>
+      <h4>Fiber Splicers</h4>
+      <p>Fusion splicing, mechanical splicing, and fiber testing for telecom carriers and ISPs.</p>
+    </div>
+    <div class="trade-card">
+      <span class="icon">🏗️</span>
+      <h4>OSP / Civil Crews</h4>
+      <p>Outside plant construction — trenching, boring, conduit installation, and vault work.</p>
+    </div>
+    <div class="trade-card">
+      <span class="icon">🔌</span>
+      <h4>Low Voltage Contractors</h4>
+      <p>Security systems, access control, fire alarm, and AV installation in commercial buildings.</p>
+    </div>
+    <div class="trade-card">
+      <span class="icon">🖧</span>
+      <h4>Network Cabling (ISP)</h4>
+      <p>Structured cabling, Cat5/6/6A, patch panels, and data center infrastructure installs.</p>
+    </div>
+    <div class="trade-card">
+      <span class="icon">📡</span>
+      <h4>Telecom Subcontractors</h4>
+      <p>Subcontractors working under AT&T, Comcast, Lumen, Frontier, or regional ISP contracts.</p>
+    </div>
+    <div class="trade-card">
+      <span class="icon">🏢</span>
+      <h4>In-Building Networks</h4>
+      <p>DAS systems, distributed antenna networks, and enterprise fiber to the desk.</p>
+    </div>
+    <div class="trade-card">
+      <span class="icon">🚧</span>
+      <h4>Utility Locating & FTTH</h4>
+      <p>Fiber-to-the-home and last-mile deployment crews working in residential neighborhoods.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="section section-alt">
+  <div class="why-grid">
+    <div>
+      <div class="eyebrow">Why Choose Us</div>
+      <h2 class="section-heading">We Speak Fiber.<br>Not Just Insurance.</h2>
+      <p class="section-sub">Generic insurance agents don't understand your exposures. Our brokers have deep experience insuring fiber optic, telecom, and construction contractors — which means we know your contracts, your risks, and the coverage gaps that can leave you exposed.</p>
+
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-num">01</div>
+          <div>
+            <h4>Brokers Who Know Your Industry</h4>
+            <p>Our licensed brokers have hands-on experience insuring fiber, telecom, and general contractors. We know the difference between OSP and ISP work, understand ROW requirements, and know exactly what coverage your prime contractor or municipality actually requires from you.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">02</div>
+          <div>
+            <h4>No Buried Exclusions</h4>
+            <p>Standard contractor policies often exclude underground work, cable damage, or telecom operations. We make sure your policy actually covers your real-world jobs.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">03</div>
+          <div>
+            <h4>Certificates in Hours, Not Days</h4>
+            <p>Need a COI to start a job tomorrow? We get you insured fast and issue certificates of insurance quickly so you never lose a contract over paperwork.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">04</div>
+          <div>
+            <h4>Access to Top-Rated Carriers</h4>
+            <p>We work with A-rated carriers that know contractor risks, so your claims actually get paid and your policy holds up under a job contract review.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-visual">
+      <div class="eyebrow" style="margin-bottom:1.25rem">Typical Coverage at a Glance</div>
+      <div class="data-row">
+        <span class="label">General Liability</span>
+        <span class="value cyan">$1M / $2M</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Workers' Comp</span>
+        <span class="value green">State Minimum+</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Commercial Auto</span>
+        <span class="value blue">$1M CSL</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Umbrella / Excess</span>
+        <span class="value cyan">$2M – $5M</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Inland Marine</span>
+        <span class="value blue">Equipment Value</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Contractor Bond</span>
+        <span class="value green">Per Contract Req.</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Quote Turnaround</span>
+        <span class="value cyan">As Fast As Possible</span>
+      </div>
+      <div class="data-row">
+        <span class="label">COI Issuance</span>
+        <span class="value green">Same Day</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="section" id="how-it-works">
+  <div style="text-align:center">
+    <div class="eyebrow">The Process</div>
+    <h2 class="section-heading">Get Covered in 4 Simple Steps</h2>
+    <p class="section-sub" style="margin: 0 auto 0 auto">No complicated paperwork, no agent runaround. We make getting the right coverage fast and straightforward.</p>
+  </div>
+
+  <div class="steps-row">
+    <div class="step-item">
+      <div class="step-dot">1</div>
+      <h4>Submit Your Quote Request</h4>
+      <p>Fill out the form with your business info, trade type, and the coverage you need. Takes under 3 minutes.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">2</div>
+      <h4>We Review Your Profile</h4>
+      <p>A licensed specialist reviews your submission and shops multiple A-rated carriers for the best fit and price.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">3</div>
+      <h4>Receive Your Options</h4>
+      <p>We present you with clear, apples-to-apples coverage options as quickly as possible. No pressure, no games.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">4</div>
+      <h4>Get Your COI & Start Working</h4>
+      <p>Bind your policy, get your certificate of insurance same day, and get back to pulling cable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section section-alt">
+  <div class="eyebrow">Contractor Reviews</div>
+  <h2 class="section-heading">Trusted by Fiber & Network Crews</h2>
+
+  <div class="reviews-grid">
+    <div class="rev-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>Finally found an agent who actually understands fiber work. They knew exactly what coverage our ISP prime contractor was requiring, and had us set up in less than a day.</blockquote>
+      <div class="reviewer">
+        <div class="rev-av">MT</div>
+        <div>
+          <div class="rev-name">Marcus T.</div>
+          <div class="rev-trade">OSP Fiber Contractor · Texas</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>My previous policy had a telecom exclusion buried in it and I didn't even know. These guys caught it and got me proper coverage before I lost a major contract over it.</blockquote>
+      <div class="reviewer">
+        <div class="rev-av">RL</div>
+        <div>
+          <div class="rev-name">Rosa L.</div>
+          <div class="rev-trade">Low Voltage & Network Cabling · Florida</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>We needed a $3M umbrella to qualify for a municipal FTTH project. They got it done fast and the pricing was better than anything we'd found on our own.</blockquote>
+      <div class="reviewer">
+        <div class="rev-av">DK</div>
+        <div>
+          <div class="rev-name">Derek K.</div>
+          <div class="rev-trade">FTTH Deployment Crew · Ohio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<section class="cta-band">
+  <h2>Ready to Protect Your Business?</h2>
+  <p>Get a free, no-obligation quote tailored to your fiber or network contracting operation.</p>
+  <a href="#quote" class="cta-big-btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    Get My Free Quote Now
+  </a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo logo">
+    <div class="logo-mark" style="width:28px;height:28px;">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 18 Q10 8 18 18 Q26 28 32 18" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="3" fill="#0066ff"/>
+      </svg>
+    </div>
+    <div class="logo-text" style="font-size:0.9rem">FiberContractors<span>Insurance.com</span></div>
+  </div>
+
+  <ul class="footer-links">
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#who-we-serve">Who We Serve</a></li>
+    <li><a href="#quote">Get a Quote</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+  </ul>
+
+  <div class="footer-copy">© 2026 FiberContractorsInsurance.com · All rights reserved · Licensed Insurance Agency</div>
+</footer>
+
+<!-- ── TERMS & CONDITIONS MODAL ── -->
+<div class="modal-overlay" id="termsModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Terms, Conditions &amp; Privacy Policy</h3>
+      <button class="modal-close" onclick="closeTerms()">✕</button>
+    </div>
+    <div class="modal-content">
+      <h4>1. Purpose of This Website</h4>
+      <p>FiberContractorsInsurance.com is a lead generation website operated by a licensed insurance brokerage. By submitting a quote request, you authorize us to contact you regarding insurance coverage for your contracting business. This website does not bind coverage, issue policies, or guarantee pricing.</p>
+
+      <h4>2. No Coverage Guarantee</h4>
+      <p>Submission of a quote request does not constitute an insurance application, a binder of coverage, or a guarantee of insurability. All coverage is subject to underwriting approval, carrier availability, and applicable state regulations. Coverage terms, conditions, and premiums are determined solely by the issuing insurance carrier.</p>
+
+      <h4>3. Licensed Broker Representation</h4>
+      <p>Your quote request will be handled by a licensed insurance broker with experience in contractor and telecom industry risks. We work with multiple A-rated insurance carriers to find competitive coverage options. We act as your broker, not as a direct insurer.</p>
+
+      <h4>4. Consent to Contact</h4>
+      <p>By submitting this form, you expressly consent to being contacted by our licensed brokers via phone, email, or text message regarding your insurance quote request. Standard message and data rates may apply. You may opt out at any time by replying STOP to any text message or by notifying us in writing.</p>
+
+      <h4>5. Privacy Policy</h4>
+      <p>We are committed to protecting your personal information. The information you provide is used solely for the purpose of preparing and delivering your insurance quote. We do not sell, rent, or share your personal information with unaffiliated third parties for marketing purposes. Your information may be shared with licensed insurance carriers and underwriters as necessary to obtain a quote on your behalf.</p>
+
+      <h4>6. Data Security</h4>
+      <p>We take reasonable measures to protect the information submitted through this website. However, no transmission over the internet is completely secure. By submitting your information, you acknowledge the inherent risks of electronic communication.</p>
+
+      <h4>7. No Warranty</h4>
+      <p>This website is provided "as is" without warranties of any kind. We do not warrant that the site will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+
+      <h4>8. Governing Law</h4>
+      <p>These terms are governed by the laws of the state in which our brokerage is licensed. Any disputes shall be resolved in the applicable courts of that jurisdiction.</p>
+
+      <h4>9. Changes to Terms</h4>
+      <p>We reserve the right to update these terms at any time. Continued use of this website constitutes acceptance of the most current terms.</p>
+
+      <p style="margin-top:1.5rem; color:#3a5070; font-size:0.7rem;">Last updated: January 2026 · FiberContractorsInsurance.com · All rights reserved</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── DISCLOSURE FOOTER ── -->
+<div class="disclosure-band">
+  <p><strong style="color:#3a5060">IMPORTANT DISCLOSURES:</strong> FiberContractorsInsurance.com is a lead generation website operated by a licensed insurance brokerage. This website is not an insurance company and does not issue policies or bind coverage. Submission of a quote request does not constitute an insurance application, a coverage binder, or a guarantee of insurability or pricing. All coverage is subject to underwriting approval by the issuing carrier.</p>
+  <p>Your information will be shared with our licensed broker team, who specialize in contractor and telecommunications industry insurance. We work with multiple A-rated insurance carriers on your behalf. We do not sell your personal information to unaffiliated third parties for marketing purposes. By submitting a quote request, you consent to being contacted by a licensed insurance broker regarding coverage options for your business.</p>
+  <p>Insurance products and availability vary by state. Certain coverages may not be available in all states or for all classes of business. Coverage terms, conditions, exclusions, and premiums are determined solely by the issuing insurance carrier and applicable state law. This site does not constitute an offer of insurance.</p>
+</div>
+
+<script>
+// ── TERMS MODAL ──
+let termsChecked = false;
+
+function toggleTerms() {
+  termsChecked = !termsChecked;
+  const label = document.getElementById('termsLabel');
+  const cbox = document.getElementById('termsCbox');
+  if (termsChecked) {
+    label.classList.add('checked');
+    label.classList.remove('error-state');
+    document.getElementById('termsError').style.display = 'none';
+  } else {
+    label.classList.remove('checked');
+  }
+}
+
+function openTerms(e) {
+  e.stopPropagation();
+  document.getElementById('termsModal').classList.add('open');
+}
+
+function closeTerms() {
+  document.getElementById('termsModal').classList.remove('open');
+}
+
+document.getElementById('termsModal').addEventListener('click', function(e) {
+  if (e.target === this) closeTerms();
+});
+</script>
+
+const canvas = document.getElementById('fiber-bg');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const fibers = [];
+const NUM = 18;
+
+for (let i = 0; i < NUM; i++) {
+  fibers.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    len: 120 + Math.random() * 200,
+    angle: Math.random() * Math.PI * 2,
+    speed: 0.2 + Math.random() * 0.4,
+    hue: Math.random() > 0.6 ? 195 : 220,
+    opacity: 0.08 + Math.random() * 0.12,
+    pulse: Math.random() * Math.PI * 2,
+    thickness: 0.5 + Math.random() * 1.5,
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const t = Date.now() / 1000;
+
+  fibers.forEach(f => {
+    f.pulse += 0.02;
+    f.x += Math.cos(f.angle) * f.speed * 0.3;
+    f.y += Math.sin(f.angle) * f.speed * 0.3;
+
+    if (f.x < -200) f.x = canvas.width + 200;
+    if (f.x > canvas.width + 200) f.x = -200;
+    if (f.y < -200) f.y = canvas.height + 200;
+    if (f.y > canvas.height + 200) f.y = -200;
+
+    const alpha = f.opacity * (0.6 + 0.4 * Math.sin(f.pulse));
+
+    const ex = f.x + Math.cos(f.angle) * f.len;
+    const ey = f.y + Math.sin(f.angle) * f.len;
+
+    const grad = ctx.createLinearGradient(f.x, f.y, ex, ey);
+    grad.addColorStop(0, `hsla(${f.hue}, 100%, 65%, 0)`);
+    grad.addColorStop(0.5, `hsla(${f.hue}, 100%, 65%, ${alpha})`);
+    grad.addColorStop(1, `hsla(${f.hue}, 100%, 65%, 0)`);
+
+    ctx.beginPath();
+    ctx.moveTo(f.x, f.y);
+    ctx.lineTo(ex, ey);
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = f.thickness;
+    ctx.stroke();
+
+    // bright tip dot
+    ctx.beginPath();
+    ctx.arc(f.x + Math.cos(f.angle) * f.len * 0.5,
+            f.y + Math.sin(f.angle) * f.len * 0.5,
+            f.thickness * 1.5, 0, Math.PI * 2);
+    ctx.fillStyle = `hsla(${f.hue}, 100%, 80%, ${alpha * 0.8})`;
+    ctx.fill();
+  });
+
+  requestAnimationFrame(draw);
+}
+draw();
+
+// ── TOGGLE CHECKBOXES ──
+function toggleCheck(el) {
+  el.classList.toggle('on');
+  el.querySelector('input').checked = el.classList.contains('on');
+}
+
+// ── FORM SUBMIT ──
+function handleSubmit() {
+  const required = ['fname', 'lname', 'company', 'email', 'phone', 'state', 'trade'];
+  let valid = true;
+
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    el.style.borderColor = '';
+    if (!el.value.trim()) {
+      el.style.borderColor = '#ff4444';
+      el.style.boxShadow = '0 0 0 3px rgba(255,68,68,0.15)';
+      valid = false;
+      el.addEventListener('input', () => {
+        el.style.borderColor = '';
+        el.style.boxShadow = '';
+      }, { once: true });
+    }
+  });
+
+  const checked = document.querySelectorAll('.cov-check.on');
+  if (checked.length === 0) {
+    document.querySelector('.cov-label-row').style.color = '#ff6b6b';
+    setTimeout(() => document.querySelector('.cov-label-row').style.color = '', 2500);
+    valid = false;
+  }
+
+  if (!termsChecked) {
+    document.getElementById('termsLabel').classList.add('error-state');
+    document.getElementById('termsError').style.display = 'block';
+    document.getElementById('termsError').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('successState').style.display = 'block';
+}
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ── SCROLL-TRIGGERED FADE IN ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.cov-card, .trade-card, .rev-card, .why-point, .step-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

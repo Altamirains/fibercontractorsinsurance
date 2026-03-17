@@ -1320,7 +1320,9 @@ footer {
 
   <!-- QUOTE FORM -->
   <div class="quote-form-card" id="quote">
-    <div class="form-inner-wrap">
+    <form class="form-inner-wrap" name="quote-request" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="quote-request">
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
       <div class="form-top">
         <h2>🔌 Get Your Free Quote</h2>
         <div class="free-badge">No Obligation</div>
@@ -1331,41 +1333,41 @@ footer {
         <div class="two-col">
           <div class="fg">
             <label>First Name <span class="req">*</span></label>
-            <input type="text" id="fname" placeholder="John" />
+            <input type="text" id="fname" name="fname" placeholder="John" />
           </div>
           <div class="fg">
             <label>Last Name <span class="req">*</span></label>
-            <input type="text" id="lname" placeholder="Smith" />
+            <input type="text" id="lname" name="lname" placeholder="Smith" />
           </div>
         </div>
 
         <div class="fg">
           <label>Business / Company Name <span class="req">*</span></label>
-          <input type="text" id="company" placeholder="Smith Fiber LLC" />
+          <input type="text" id="company" name="company" placeholder="Smith Fiber LLC" />
         </div>
 
         <div class="two-col">
           <div class="fg">
             <label>Email Address <span class="req">*</span></label>
-            <input type="email" id="email" placeholder="john@smithfiber.com" />
+            <input type="email" id="email" name="email" placeholder="john@smithfiber.com" />
           </div>
           <div class="fg">
             <label>Phone Number <span class="req">*</span></label>
-            <input type="tel" id="phone" placeholder="(555) 000-0000" />
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
           </div>
         </div>
 
         <div class="two-col">
           <div class="fg">
             <label>State <span class="req">*</span></label>
-            <select id="state">
+            <select id="state" name="state">
               <option value="" disabled selected>Select state...</option>
               <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
             </select>
           </div>
           <div class="fg">
             <label>Annual Revenue (Est.)</label>
-            <select id="revenue">
+            <select id="revenue" name="revenue">
               <option value="" disabled selected>Select range...</option>
               <option>Under $100,000</option>
               <option>$100K – $250K</option>
@@ -1379,7 +1381,7 @@ footer {
 
         <div class="fg">
           <label>Primary Trade <span class="req">*</span></label>
-          <select id="trade">
+          <select id="trade" name="trade">
             <option value="" disabled selected>Select your trade...</option>
             <option>Fiber Optic Installation (Aerial)</option>
             <option>Fiber Optic Installation (Underground/OSP)</option>
@@ -1396,32 +1398,32 @@ footer {
           <div class="cov-label-row">Coverage Needed <span style="color:var(--cyan)">*</span> (select all that apply)</div>
           <div class="cov-checks">
             <label class="cov-check" onclick="toggleCheck(this)">
-              <input type="checkbox" value="General Liability">
+              <input type="checkbox" name="coverage" value="General Liability">
               <div class="cbox"></div>
               <span>General Liability</span>
             </label>
             <label class="cov-check" onclick="toggleCheck(this)">
-              <input type="checkbox" value="Workers Compensation">
+              <input type="checkbox" name="coverage" value="Workers Compensation">
               <div class="cbox"></div>
               <span>Workers' Comp</span>
             </label>
             <label class="cov-check" onclick="toggleCheck(this)">
-              <input type="checkbox" value="Commercial Auto">
+              <input type="checkbox" name="coverage" value="Commercial Auto">
               <div class="cbox"></div>
               <span>Commercial Auto</span>
             </label>
             <label class="cov-check" onclick="toggleCheck(this)">
-              <input type="checkbox" value="Umbrella">
+              <input type="checkbox" name="coverage" value="Umbrella">
               <div class="cbox"></div>
               <span>Umbrella</span>
             </label>
             <label class="cov-check" onclick="toggleCheck(this)">
-              <input type="checkbox" value="Inland Marine">
+              <input type="checkbox" name="coverage" value="Inland Marine">
               <div class="cbox"></div>
               <span>Inland Marine</span>
             </label>
             <label class="cov-check" onclick="toggleCheck(this)">
-              <input type="checkbox" value="Bonds">
+              <input type="checkbox" name="coverage" value="Bonds">
               <div class="cbox"></div>
               <span>Bonds</span>
             </label>
@@ -1451,7 +1453,7 @@ footer {
         <h3>Quote Request Received!</h3>
         <p>Thank you! A licensed insurance broker specializing in fiber and network contractor coverage will review your submission and reach out with your personalized coverage options as quickly as possible.</p>
       </div>
-    </div>
+    </form>
   </div>
 </section>
 
@@ -1976,8 +1978,33 @@ function handleSubmit() {
 
   if (!valid) return;
 
-  document.getElementById('formContent').style.display = 'none';
-  document.getElementById('successState').style.display = 'block';
+  const coverageSelected = [...checked].map(el => el.querySelector('input').value).join(', ');
+
+  const formData = new URLSearchParams({
+    'form-name': 'quote-request',
+    'fname': document.getElementById('fname').value,
+    'lname': document.getElementById('lname').value,
+    'company': document.getElementById('company').value,
+    'email': document.getElementById('email').value,
+    'phone': document.getElementById('phone').value,
+    'state': document.getElementById('state').value,
+    'revenue': document.getElementById('revenue').value,
+    'trade': document.getElementById('trade').value,
+    'coverage': coverageSelected
+  });
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: formData.toString()
+  })
+  .then(() => {
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('successState').style.display = 'block';
+  })
+  .catch(() => {
+    alert('Something went wrong. Please try again.');
+  });
 }
 
 // ── SMOOTH SCROLL ──

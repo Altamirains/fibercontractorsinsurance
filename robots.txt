@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.fibercontractorinsurance.com/sitemap.xml

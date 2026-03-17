@@ -1397,32 +1397,32 @@ footer {
         <div class="fg">
           <div class="cov-label-row">Coverage Needed <span style="color:var(--cyan)">*</span> (select all that apply)</div>
           <div class="cov-checks">
-            <label class="cov-check" onclick="toggleCheck(this)">
+            <label class="cov-check" onclick="toggleCheck(event, this)">
               <input type="checkbox" name="coverage" value="General Liability">
               <div class="cbox"></div>
               <span>General Liability</span>
             </label>
-            <label class="cov-check" onclick="toggleCheck(this)">
+            <label class="cov-check" onclick="toggleCheck(event, this)">
               <input type="checkbox" name="coverage" value="Workers Compensation">
               <div class="cbox"></div>
               <span>Workers' Comp</span>
             </label>
-            <label class="cov-check" onclick="toggleCheck(this)">
+            <label class="cov-check" onclick="toggleCheck(event, this)">
               <input type="checkbox" name="coverage" value="Commercial Auto">
               <div class="cbox"></div>
               <span>Commercial Auto</span>
             </label>
-            <label class="cov-check" onclick="toggleCheck(this)">
+            <label class="cov-check" onclick="toggleCheck(event, this)">
               <input type="checkbox" name="coverage" value="Umbrella">
               <div class="cbox"></div>
               <span>Umbrella</span>
             </label>
-            <label class="cov-check" onclick="toggleCheck(this)">
+            <label class="cov-check" onclick="toggleCheck(event, this)">
               <input type="checkbox" name="coverage" value="Inland Marine">
               <div class="cbox"></div>
               <span>Inland Marine</span>
             </label>
-            <label class="cov-check" onclick="toggleCheck(this)">
+            <label class="cov-check" onclick="toggleCheck(event, this)">
               <input type="checkbox" name="coverage" value="Bonds">
               <div class="cbox"></div>
               <span>Bonds</span>
@@ -1938,7 +1938,8 @@ function draw() {
 draw();
 
 // ── TOGGLE CHECKBOXES ──
-function toggleCheck(el) {
+function toggleCheck(e, el) {
+  e.preventDefault();
   el.classList.toggle('on');
   el.querySelector('input').checked = el.classList.contains('on');
 }

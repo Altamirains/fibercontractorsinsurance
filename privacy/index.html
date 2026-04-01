@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | FiberContractorInsurance.com</title>
+<meta name="description" content="Privacy policy for FiberContractorInsurance.com. Learn how we collect, use, and protect your personal information.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://www.fibercontractorinsurance.com/privacy/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.fibercontractorinsurance.com/privacy/">
+<meta property="og:title" content="Privacy Policy | FiberContractorInsurance.com">
+<meta property="og:description" content="Privacy policy for FiberContractorInsurance.com. Learn how we collect, use, and protect your personal information.">
+<meta property="og:site_name" content="FiberContractorInsurance.com">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://www.fibercontractorinsurance.com/privacy/">
+<meta name="twitter:title" content="Privacy Policy | FiberContractorInsurance.com">
+<meta name="twitter:description" content="Privacy policy for FiberContractorInsurance.com. Learn how we collect, use, and protect your personal information.">
+
+<!-- SEO -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="FiberContractorInsurance.com">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VRWZREBP56"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VRWZREBP56');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #1c2d4a;
+  --bg2: #213452;
+  --bg3: #263b5c;
+  --panel: #2a4265;
+  --panel2: #2f4a70;
+  --blue: #0066ff;
+  --blue-bright: #2f8cff;
+  --blue-glow: rgba(0, 102, 255, 0.18);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0,212,255,0.12);
+  --white: #ffffff;
+  --text: #c8d8f0;
+  --text-soft: #7a9cc8;
+  --border: rgba(255,255,255,0.07);
+  --border-blue: rgba(0,102,255,0.35);
+  --orange: #ff6b00;
+  --green: #00e676;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── FIBER ANIMATION CANVAS ── */
+#fiber-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 300;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background: rgba(28,45,74,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), var(--blue), transparent);
+  opacity: 0.6;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark svg { width: 36px; height: 36px; }
+
+.logo-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.logo-text span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--cyan);
+  letter-spacing: 0.15em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--cyan); }
+
+.nav-cta {
+  background: var(--blue);
+  color: var(--white) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s !important;
+  box-shadow: 0 0 20px rgba(0,102,255,0.3);
+}
+
+.nav-cta:hover {
+  background: var(--blue-bright) !important;
+  box-shadow: 0 0 30px rgba(0,102,255,0.5) !important;
+}
+
+/* ── PAGE HERO ── */
+.page-hero {
+  position: relative;
+  z-index: 1;
+  padding: 8rem 5% 4rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0,102,255,0.05) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero-glow {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(0,102,255,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.page-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.25);
+  color: var(--cyan);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.9rem;
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.page-hero h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.page-hero-meta {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  font-weight: 300;
+}
+
+/* ── CONTENT AREA ── */
+.content-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 5% 4rem;
+}
+
+/* ── SECTION CARDS ── */
+.content-section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem 2.25rem;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.content-section:hover {
+  border-color: rgba(0,102,255,0.25);
+}
+
+.content-section h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cyan);
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.content-section h2 .sec-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; height: 24px;
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.25);
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+.content-section p {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.content-section p + p {
+  margin-top: 0.75rem;
+}
+
+.content-section p a {
+  color: var(--blue-bright);
+  text-decoration: underline;
+}
+
+.content-section p a:hover {
+  color: var(--cyan);
+}
+
+/* ── CTA BAND ── */
+.cta-band {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 4rem 5%;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(0,102,255,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cta-band h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+
+.cta-band p {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  font-weight: 300;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.cta-big-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--blue);
+  color: var(--white);
+  padding: 0.9rem 2.25rem;
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 30px rgba(0,102,255,0.4);
+  position: relative;
+}
+
+.cta-big-btn:hover {
+  background: var(--blue-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(0,102,255,0.5);
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo .logo-text { font-size: 1rem; }
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.footer-links a:hover { color: var(--cyan); }
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: #2a4060;
+}
+
+/* ── DISCLOSURE BAND ── */
+.disclosure-band {
+  position: relative;
+  z-index: 1;
+  background: #030608;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem 5%;
+}
+
+.disclosure-band p {
+  font-size: 0.72rem;
+  color: #2a4060;
+  line-height: 1.7;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.disclosure-band p + p { margin-top: 0.75rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .content-section { padding: 1.5rem 1.25rem; }
+  footer { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- FIBER ANIMATED BACKGROUND -->
+<canvas id="fiber-bg"></canvas>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="6" fill="#0066ff" fill-opacity="0.15"/>
+        <path d="M6 18 Q12 8 18 18 Q24 28 30 18" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M6 14 Q12 4 18 14 Q24 24 30 14" stroke="#0066ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M6 22 Q12 12 18 22 Q24 32 30 22" stroke="#0066ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <circle cx="18" cy="18" r="2.5" fill="#00d4ff"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      FiberContractor
+      <span>Insurance.com</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/coverage/">Coverage</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/get-a-quote/" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-label">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="page-hero-meta">Last updated: April 1, 2026</p>
+</div>
+
+<!-- ── CONTENT ── -->
+<div class="content-wrap">
+
+  <div class="content-section">
+    <h2><span class="sec-num">1</span>Information We Collect</h2>
+    <p>When you submit a quote request through this site, we collect information you provide directly, including your name, company name, email address, phone number, state, trade type, annual revenue range, and coverage needs.</p>
+    <p>We also collect analytics data through Google Analytics, including pages visited, time spent on the site, browser and device type, and general geographic location. This data is collected in aggregate and is used to improve the site experience.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">2</span>How We Use Your Information</h2>
+    <p>The information you submit is used to connect you with licensed insurance brokers who can provide quotes tailored to your business. We do not sell your personal information to third parties. Your data is shared only with the licensed brokers and carriers working directly to fulfill your quote request on your behalf.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">3</span>Google Analytics</h2>
+    <p>This site uses Google Analytics (tracking ID: G-VRWZREBP56) to understand how visitors use our website. Google Analytics may collect anonymized data including your IP address, browser type, device information, and the pages you visit. This information is used solely to improve site performance and content.</p>
+    <p>You can opt out of Google Analytics data collection at any time by using <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google's opt-out browser add-on</a> or by adjusting your browser's privacy settings.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">4</span>Cookies</h2>
+    <p>This site may use cookies to support analytics functionality. We do not use tracking cookies for advertising or remarketing purposes. You can control cookie settings through your browser preferences. Disabling cookies may affect certain site features but will not prevent you from submitting a quote request.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">5</span>Data Retention</h2>
+    <p>Quote request data is retained for the purpose of fulfilling your insurance quote request and for legal and compliance record-keeping purposes. You may request deletion of your personal data at any time by contacting us through the quote form on this site. We will respond to verified deletion requests promptly.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">6</span>Your Rights</h2>
+    <p>Depending on the state in which you reside, you may have rights to access, correct, or delete the personal data we hold about you. California residents have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information is collected, the right to delete personal information, and the right to opt out of the sale of personal information. We do not sell personal information.</p>
+    <p>To exercise any of these rights, please contact us through the quote request form on this site.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">7</span>Third-Party Links</h2>
+    <p>Our site may contain links to third-party websites, including insurance carrier sites, ISP contractor portals, and industry resources. We are not responsible for the privacy practices or content of those websites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">8</span>Children's Privacy</h2>
+    <p>This website is intended for use by business owners and contractors and is not directed at children under the age of 13. We do not knowingly collect personal information from children. If we become aware that we have inadvertently collected data from a child under 13, we will take steps to delete that information promptly.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">9</span>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy periodically to reflect changes in our practices or applicable law. The date at the top of this page reflects the most recent revision. Continued use of the site after any updates constitutes your acceptance of the revised policy. We encourage you to review this page periodically.</p>
+  </div>
+
+  <div class="content-section">
+    <h2><span class="sec-num">10</span>Contact</h2>
+    <p>For privacy-related questions, data access requests, or deletion requests, please contact us through the quote request form on this site. We are committed to addressing your privacy concerns in a timely and transparent manner.</p>
+  </div>
+
+</div>
+
+<!-- ── CTA BAND ── -->
+<div class="cta-band">
+  <h2>Ready to Get Covered?</h2>
+  <p>Fast quotes on General Liability, Workers' Comp, Commercial Auto, and more.</p>
+  <a href="/get-a-quote/" class="cta-big-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    Get a Quote
+  </a>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <a href="/" class="logo footer-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="6" fill="#0066ff" fill-opacity="0.15"/>
+        <path d="M6 18 Q12 8 18 18 Q24 28 30 18" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M6 14 Q12 4 18 14 Q24 24 30 14" stroke="#0066ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M6 22 Q12 12 18 22 Q24 32 30 22" stroke="#0066ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <circle cx="18" cy="18" r="2.5" fill="#00d4ff"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      FiberContractor
+      <span>Insurance.com</span>
+    </div>
+  </a>
+
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/coverage/">Coverage</a></li>
+    <li><a href="/states/">States</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/get-a-quote/">Get a Quote</a></li>
+  </ul>
+
+  <p class="footer-copy">&copy; 2026 FiberContractorInsurance.com. All rights reserved.</p>
+</footer>
+
+<!-- ── DISCLOSURE BAND ── -->
+<div class="disclosure-band">
+  <p><strong style="color:#3a5060">IMPORTANT DISCLOSURES:</strong> FiberContractorInsurance.com is a lead generation website operated by a licensed insurance brokerage. This website is not an insurance company and does not issue policies or bind coverage. Submission of a quote request does not constitute an insurance application, a coverage binder, or a guarantee of insurability or pricing. All coverage is subject to underwriting approval by the issuing carrier.</p>
+  <p>Insurance products and availability vary by state. Certain coverages may not be available in all states or for all classes of business. Coverage terms, conditions, exclusions, and premiums are determined solely by the issuing insurance carrier and applicable state law.</p>
+  <p style="margin-top:1rem;">Site managed by <a href="https://altamirains.com" style="color:#2a4060;text-decoration:none;" rel="dofollow">Altamira Insurance Agency</a>.</p>
+</div>
+
+<script>
+const canvas = document.getElementById('fiber-bg');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const fibers = [];
+const NUM = 12;
+
+for (let i = 0; i < NUM; i++) {
+  fibers.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    len: 120 + Math.random() * 200,
+    angle: Math.random() * Math.PI * 2,
+    speed: 0.2 + Math.random() * 0.4,
+    hue: Math.random() > 0.6 ? 195 : 220,
+    opacity: 0.08 + Math.random() * 0.12,
+    pulse: Math.random() * Math.PI * 2,
+    thickness: 0.5 + Math.random() * 1.5,
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  fibers.forEach(f => {
+    f.pulse += 0.02;
+    f.x += Math.cos(f.angle) * f.speed * 0.3;
+    f.y += Math.sin(f.angle) * f.speed * 0.3;
+
+    if (f.x < -200) f.x = canvas.width + 200;
+    if (f.x > canvas.width + 200) f.x = -200;
+    if (f.y < -200) f.y = canvas.height + 200;
+    if (f.y > canvas.height + 200) f.y = -200;
+
+    const alpha = f.opacity * (0.6 + 0.4 * Math.sin(f.pulse));
+
+    const ex = f.x + Math.cos(f.angle) * f.len;
+    const ey = f.y + Math.sin(f.angle) * f.len;
+
+    const grad = ctx.createLinearGradient(f.x, f.y, ex, ey);
+    grad.addColorStop(0, `hsla(${f.hue}, 100%, 65%, 0)`);
+    grad.addColorStop(0.5, `hsla(${f.hue}, 100%, 65%, ${alpha})`);
+    grad.addColorStop(1, `hsla(${f.hue}, 100%, 65%, 0)`);
+
+    ctx.beginPath();
+    ctx.moveTo(f.x, f.y);
+    ctx.lineTo(ex, ey);
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = f.thickness;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(
+      f.x + Math.cos(f.angle) * f.len * 0.5,
+      f.y + Math.sin(f.angle) * f.len * 0.5,
+      f.thickness * 1.5, 0, Math.PI * 2
+    );
+    ctx.fillStyle = `hsla(${f.hue}, 100%, 80%, ${alpha * 0.8})`;
+    ctx.fill();
+  });
+
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>

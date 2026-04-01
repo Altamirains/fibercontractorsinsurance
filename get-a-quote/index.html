@@ -574,32 +574,32 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--b
           <div class="fg">
             <div class="cov-label">Coverage Needed <span style="color:var(--cyan)">*</span></div>
             <div class="cov-checks">
-              <label class="cov-check checked" onclick="toggleCov(this)">
+              <label class="cov-check checked" onclick="toggleCov(event,this)">
                 <input type="checkbox" name="coverage" value="General Liability" checked>
                 <div class="cbox"></div>
                 <span>General Liability</span>
               </label>
-              <label class="cov-check" onclick="toggleCov(this)">
+              <label class="cov-check" onclick="toggleCov(event,this)">
                 <input type="checkbox" name="coverage" value="Workers Compensation">
                 <div class="cbox"></div>
                 <span>Workers' Comp</span>
               </label>
-              <label class="cov-check" onclick="toggleCov(this)">
+              <label class="cov-check" onclick="toggleCov(event,this)">
                 <input type="checkbox" name="coverage" value="Commercial Auto">
                 <div class="cbox"></div>
                 <span>Commercial Auto</span>
               </label>
-              <label class="cov-check" onclick="toggleCov(this)">
+              <label class="cov-check" onclick="toggleCov(event,this)">
                 <input type="checkbox" name="coverage" value="Umbrella">
                 <div class="cbox"></div>
                 <span>Umbrella</span>
               </label>
-              <label class="cov-check" onclick="toggleCov(this)">
+              <label class="cov-check" onclick="toggleCov(event,this)">
                 <input type="checkbox" name="coverage" value="Inland Marine">
                 <div class="cbox"></div>
                 <span>Inland Marine</span>
               </label>
-              <label class="cov-check" onclick="toggleCov(this)">
+              <label class="cov-check" onclick="toggleCov(event,this)">
                 <input type="checkbox" name="coverage" value="Bonds">
                 <div class="cbox"></div>
                 <span>Bonds</span>
@@ -650,7 +650,7 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--b
 
           <label class="terms-check" id="termsLabel" onclick="toggleTerms()">
             <div class="terms-cbox" id="termsCbox"></div>
-            <div class="terms-text">I agree to the <a href="/" onclick="return false;">Terms &amp; Conditions</a> and <a href="/" onclick="return false;">Privacy Policy</a>. I consent to being contacted by a licensed insurance broker. <span style="color:var(--cyan)">*</span></div>
+            <div class="terms-text">I agree to the <a href="/terms/" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy/" target="_blank">Privacy Policy</a>. I consent to being contacted by a licensed insurance broker. <span style="color:var(--cyan)">*</span></div>
           </label>
           <div class="terms-error" id="termsError">Please agree to the Terms &amp; Conditions to continue.</div>
 
@@ -741,7 +741,8 @@ function selectTrade(el) {
   document.getElementById('tradeError').style.display = 'none';
 }
 
-function toggleCov(label) {
+function toggleCov(event, label) {
+  event.preventDefault();
   label.classList.toggle('checked');
   const cb = label.querySelector('input');
   cb.checked = label.classList.contains('checked');

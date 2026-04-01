@@ -469,7 +469,7 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--b
       </div>
 
       <!-- Hidden Netlify form for detection -->
-      <form name="quote-request-landing" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <form name="quote-request-landing" data-netlify="true" netlify-honeypot="bot-field" style="display:none">
         <input type="hidden" name="form-name" value="quote-request-landing">
         <input name="bot-field">
         <input name="trade">
@@ -850,6 +850,7 @@ function handleSubmit() {
 
   const formData = new URLSearchParams({
     'form-name': 'quote-request-landing',
+    'bot-field': '',
     'trade': selectedTrade,
     'state': document.getElementById('state').value,
     'company': document.getElementById('company').value,
@@ -862,7 +863,7 @@ function handleSubmit() {
     'phone': document.getElementById('phone').value
   });
 
-  fetch('/', {
+  fetch('/get-a-quote/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: formData.toString()

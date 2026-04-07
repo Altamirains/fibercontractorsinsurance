@@ -201,6 +201,27 @@ footer{position:relative;z-index:1;background:var(--bg);border-top:1px solid var
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:6rem;}.quote-form-card{margin-top:2rem;}.cov-grid,.cities-grid{grid-template-columns:1fr 1fr;}.why-grid{grid-template-columns:1fr;}}
 @media(max-width:600px){.cov-grid,.cities-grid{grid-template-columns:1fr;}.nav-links{display:none;}.two-col{grid-template-columns:1fr;}.cov-checks{grid-template-columns:1fr;}}
+
+/* ── HAMBURGER MENU ── */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; background: none; border: none; z-index: 400; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--white); transition: all 0.25s; border-radius: 2px; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    position: fixed; top: 68px; left: 0; right: 0;
+    background: rgba(28,45,74,0.97) !important; backdrop-filter: blur(20px);
+    flex-direction: column; padding: 1.5rem 5%; gap: 0.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    z-index: 299; list-style: none;
+  }
+  .nav-links.open { display: flex !important; }
+  .nav-links li { width: 100%; }
+  .nav-links a { font-size: 1.05rem !important; padding: 0.65rem 0; display: block; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .nav-cta { margin-top: 0.5rem; text-align: center; border-bottom: none !important; border-radius: 4px; }
+}
 </style>
 </head>
 <body>
@@ -210,6 +231,9 @@ footer{position:relative;z-index:1;background:var(--bg);border-top:1px solid var
     <div class="logo-mark"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="#0066ff" stroke-width="1.5" opacity="0.4"/><path d="M6 18 Q12 8 18 18 Q24 28 30 18" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M6 22 Q12 12 18 22 Q24 32 30 22" stroke="#0066ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/><circle cx="18" cy="18" r="2.5" fill="#00d4ff"/></svg></div>
     <div class="logo-text">FiberContractor<br><span>Insurance.com</span></div>
   </a>
+    <button class="hamburger" aria-label="Toggle menu" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#coverage">Coverage</a></li>
     <li><a href="#why-us">Why Us</a></li>

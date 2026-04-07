@@ -1354,6 +1354,47 @@ footer {
 
 .disclosure-band p + p { margin-top: 0.75rem; }
 
+/* ── MULTI-STEP FORM CARD ── */
+.form-card { position: relative; z-index: 1; background: var(--panel); border: 1px solid var(--border-blue); border-radius: 8px; overflow: hidden; box-shadow: 0 0 60px rgba(0,102,255,0.15), 0 30px 60px rgba(0,0,0,0.5); animation: fadeUp 0.6s 0.15s ease both; }
+.form-card-header { background: linear-gradient(135deg, var(--blue) 0%, #004cc4 100%); padding: 1.5rem 1.75rem 1.25rem; }
+.form-card-header h2 { font-family: 'Rajdhani', sans-serif; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--white); margin-bottom: 0.25rem; }
+.form-card-header p { font-size: 0.8rem; color: rgba(255,255,255,0.75); font-weight: 300; }
+.step-progress { padding: 1.25rem 1.75rem 0; display: flex; align-items: center; gap: 0; margin-bottom: 0.25rem; }
+.step-pip { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
+.step-pip:not(:last-child)::after { content: ''; position: absolute; top: 14px; left: 50%; right: -50%; height: 2px; background: var(--border); z-index: 0; transition: background 0.3s; }
+.step-pip.done:not(:last-child)::after { background: var(--blue); }
+.step-circle { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Rajdhani', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--text-soft); background: var(--panel2); z-index: 1; position: relative; transition: all 0.3s; }
+.step-pip.active .step-circle { border-color: var(--cyan); color: var(--white); background: rgba(0,212,255,0.12); box-shadow: 0 0 12px rgba(0,212,255,0.3); }
+.step-pip.done .step-circle { border-color: var(--blue); background: var(--blue); color: white; }
+.step-label { font-family: 'Rajdhani', sans-serif; font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-soft); margin-top: 0.35rem; text-align: center; transition: color 0.3s; }
+.step-pip.active .step-label { color: var(--cyan); }
+.step-pip.done .step-label { color: var(--blue-bright); }
+.form-body { padding: 1.25rem 1.75rem 1.5rem; }
+.form-step { display: none; }
+.form-step.active { display: block; }
+.step-title { font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--white); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+.trade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-bottom: 1rem; }
+.trade-grid .trade-card { background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 0.875rem 0.5rem; cursor: pointer; text-align: center; transition: border-color 0.2s, background 0.2s, transform 0.15s; }
+.trade-grid .trade-card.selected { border-color: var(--cyan); background: var(--cyan-dim); }
+.trade-grid .trade-card:hover { border-color: rgba(0,212,255,0.4); background: rgba(0,212,255,0.05); transform: translateY(-2px); }
+.trade-card-icon { font-size: 1.5rem; margin-bottom: 0.35rem; }
+.trade-card-label { font-family: 'Rajdhani', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); line-height: 1.25; }
+.trade-error { color: #ff4757; font-size: 0.75rem; margin-bottom: 0.75rem; display: none; }
+.btn-row { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+.btn-next, .btn-submit { flex: 1; padding: 0.8rem 1.25rem; background: var(--blue); border: none; border-radius: 5px; color: white; font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 0 20px rgba(0,102,255,0.3); }
+.btn-next:hover, .btn-submit:hover { background: var(--blue-bright); transform: translateY(-1px); box-shadow: 0 0 30px rgba(0,102,255,0.5); }
+.btn-back { padding: 0.8rem 1.25rem; background: transparent; border: 1px solid var(--border); border-radius: 5px; color: var(--text-soft); font-family: 'Rajdhani', sans-serif; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; transition: border-color 0.2s, color 0.2s; }
+.btn-back:hover { border-color: var(--cyan); color: var(--cyan); }
+.cov-label { font-size: 0.72rem; font-weight: 500; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 0.6rem; }
+.cov-check.checked { border-color: var(--blue); background: rgba(0,102,255,0.1); }
+.cov-check.checked .cbox { background: var(--blue); border-color: var(--blue); }
+.cov-check.checked .cbox::after { content: ''; display: block; width: 5px; height: 8px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); margin: 2px auto; }
+.cov-check.checked span { color: #8ab8ff; }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.fg .err-msg { font-size: 0.72rem; color: #ff4757; margin-top: 0.3rem; display: none; }
+.fg.error .err-msg { display: block; }
+.fg.error input, .fg.error select { border-color: #ff4757; box-shadow: 0 0 0 3px rgba(255,71,87,0.15); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .hero { grid-template-columns: 1fr; padding-top: 7rem; }
@@ -1499,51 +1540,116 @@ footer {
     </div>
   </div>
 
-  <!-- QUOTE FORM -->
+  <!-- QUOTE FORM — MULTI-STEP -->
   <div class="quote-form-card" id="quote">
-    <form class="form-inner-wrap" name="quote-request" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="quote-request">
-      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
-      <div class="form-top">
-        <h2>🔌 Get Your Quote</h2>
-        <div class="free-badge">No Obligation</div>
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="free-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          No Obligation &middot; No Commitment
+        </div>
+        <h2>Request My Quote</h2>
+        <p>3 quick steps &mdash; a specialist will follow up with your options</p>
       </div>
-      <div class="form-inner" id="formContent">
-        <p class="sub-text">Tell us about your business and we'll match you with the right coverage at the best rate.</p>
 
-        <div class="two-col">
-          <div class="fg">
-            <label>First Name <span class="req">*</span></label>
-            <input type="text" id="fname" name="fname" placeholder="John" />
-          </div>
-          <div class="fg">
-            <label>Last Name <span class="req">*</span></label>
-            <input type="text" id="lname" name="lname" placeholder="Smith" />
-          </div>
+      <!-- Step progress -->
+      <div class="step-progress" id="stepProgress">
+        <div class="step-pip active" id="pip1">
+          <div class="step-circle">1</div>
+          <div class="step-label">Your Work</div>
         </div>
-
-        <div class="fg">
-          <label>Business / Company Name <span class="req">*</span></label>
-          <input type="text" id="company" name="company" placeholder="Smith Fiber LLC" />
+        <div class="step-pip" id="pip2">
+          <div class="step-circle">2</div>
+          <div class="step-label">Business</div>
         </div>
-
-        <div class="two-col">
-          <div class="fg">
-            <label>Email Address <span class="req">*</span></label>
-            <input type="email" id="email" name="email" placeholder="john@smithfiber.com" />
-          </div>
-          <div class="fg">
-            <label>Phone Number <span class="req">*</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
-          </div>
+        <div class="step-pip" id="pip3">
+          <div class="step-circle">3</div>
+          <div class="step-label">Contact</div>
         </div>
+      </div>
 
-        <div class="two-col">
+      <!-- Hidden Netlify detection form -->
+      <form name="quote-request" data-netlify="true" netlify-honeypot="bot-field" style="display:none">
+        <input type="hidden" name="form-name" value="quote-request">
+        <input name="bot-field">
+        <input name="trade">
+        <input name="state">
+        <input name="company">
+        <input name="revenue">
+        <input name="employees">
+        <input name="fname">
+        <input name="lname">
+        <input name="email">
+        <input name="phone">
+        <input name="coverage">
+      </form>
+
+      <div class="form-body" id="formContent">
+
+        <!-- STEP 1 -->
+        <div class="form-step active" id="step1">
+          <div class="step-title">Step 1 of 3 &mdash; What type of work do you do?</div>
+          <div id="tradeError" class="trade-error">Please select your primary trade.</div>
+          <div class="trade-grid" id="tradeGrid">
+            <div class="trade-card" data-value="Fiber Optic Installation (Aerial)" onclick="selectTrade(this)">
+              <div class="trade-card-icon">🔌</div>
+              <div class="trade-card-label">Fiber Installation (Aerial)</div>
+            </div>
+            <div class="trade-card" data-value="Fiber Optic Installation (Underground/OSP)" onclick="selectTrade(this)">
+              <div class="trade-card-icon">⛏️</div>
+              <div class="trade-card-label">Fiber Installation (Underground)</div>
+            </div>
+            <div class="trade-card" data-value="Fiber Splicing & Testing" onclick="selectTrade(this)">
+              <div class="trade-card-icon">💡</div>
+              <div class="trade-card-label">Fiber Splicing &amp; Testing</div>
+            </div>
+            <div class="trade-card" data-value="ISP / Telecom Subcontractor" onclick="selectTrade(this)">
+              <div class="trade-card-icon">📡</div>
+              <div class="trade-card-label">ISP / Telecom Subcontractor</div>
+            </div>
+            <div class="trade-card" data-value="Low Voltage Installation" onclick="selectTrade(this)">
+              <div class="trade-card-icon">⚡</div>
+              <div class="trade-card-label">Low Voltage Installation</div>
+            </div>
+            <div class="trade-card" data-value="Multiple Fiber/Network Trades" onclick="selectTrade(this)">
+              <div class="trade-card-icon">🔧</div>
+              <div class="trade-card-label">Multiple Trades</div>
+            </div>
+          </div>
           <div class="fg">
             <label>State <span class="req">*</span></label>
             <select id="state" name="state">
-              <option value="" disabled selected>Select state...</option>
+              <option value="" disabled selected>Select your state...</option>
               <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            </select>
+            <div class="err-msg" id="stateErr">Please select your state.</div>
+          </div>
+          <div class="btn-row">
+            <button class="btn-next" type="button" onclick="nextStep(1)">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step" id="step2">
+          <div class="step-title">Step 2 of 3 &mdash; Tell us about your business</div>
+          <div class="fg" id="fg-company">
+            <label>Business / Company Name <span class="req">*</span></label>
+            <input type="text" id="company" name="company" placeholder="Smith Fiber LLC" autocomplete="organization">
+            <div class="err-msg">Please enter your company name.</div>
+          </div>
+          <div class="fg">
+            <label>Number of Employees</label>
+            <select id="employees" name="employees">
+              <option value="" disabled selected>Select range...</option>
+              <option>Just me (solo)</option>
+              <option>2–5</option>
+              <option>6–10</option>
+              <option>11–25</option>
+              <option>26–50</option>
+              <option>50+</option>
             </select>
           </div>
           <div class="fg">
@@ -1558,83 +1664,110 @@ footer {
               <option>Over $5M</option>
             </select>
           </div>
-        </div>
-
-        <div class="fg">
-          <label>Primary Trade <span class="req">*</span></label>
-          <select id="trade" name="trade">
-            <option value="" disabled selected>Select your trade...</option>
-            <option>Fiber Optic Installation (Aerial)</option>
-            <option>Fiber Optic Installation (Underground/OSP)</option>
-            <option>Fiber Splicing & Testing</option>
-            <option>Low Voltage Installation</option>
-            <option>Network / Data Cabling (Inside Plant)</option>
-            <option>Telecommunications Infrastructure</option>
-            <option>ISP / Telecom Subcontractor</option>
-            <option>Multiple Fiber/Network Trades</option>
-          </select>
-        </div>
-
-        <div class="fg">
-          <div class="cov-label-row">Coverage Needed <span style="color:var(--cyan)">*</span> (select all that apply)</div>
-          <div class="cov-checks">
-            <label class="cov-check" onclick="toggleCheck(event, this)">
-              <input type="checkbox" name="coverage" value="General Liability">
-              <div class="cbox"></div>
-              <span>General Liability</span>
-            </label>
-            <label class="cov-check" onclick="toggleCheck(event, this)">
-              <input type="checkbox" name="coverage" value="Workers Compensation">
-              <div class="cbox"></div>
-              <span>Workers' Comp</span>
-            </label>
-            <label class="cov-check" onclick="toggleCheck(event, this)">
-              <input type="checkbox" name="coverage" value="Commercial Auto">
-              <div class="cbox"></div>
-              <span>Commercial Auto</span>
-            </label>
-            <label class="cov-check" onclick="toggleCheck(event, this)">
-              <input type="checkbox" name="coverage" value="Umbrella">
-              <div class="cbox"></div>
-              <span>Umbrella</span>
-            </label>
-            <label class="cov-check" onclick="toggleCheck(event, this)">
-              <input type="checkbox" name="coverage" value="Inland Marine">
-              <div class="cbox"></div>
-              <span>Inland Marine</span>
-            </label>
-            <label class="cov-check" onclick="toggleCheck(event, this)">
-              <input type="checkbox" name="coverage" value="Bonds">
-              <div class="cbox"></div>
-              <span>Bonds</span>
-            </label>
+          <div class="fg">
+            <div class="cov-label">Coverage Needed <span style="color:var(--cyan)">*</span></div>
+            <div class="cov-checks">
+              <label class="cov-check checked" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="General Liability" checked>
+                <div class="cbox"></div>
+                <span>General Liability</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Workers Compensation">
+                <div class="cbox"></div>
+                <span>Workers' Comp</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Commercial Auto">
+                <div class="cbox"></div>
+                <span>Commercial Auto</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Umbrella">
+                <div class="cbox"></div>
+                <span>Umbrella</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Inland Marine">
+                <div class="cbox"></div>
+                <span>Inland Marine</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Bonds">
+                <div class="cbox"></div>
+                <span>Bonds</span>
+              </label>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button class="btn-back" type="button" onclick="prevStep(2)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Back
+            </button>
+            <button class="btn-next" type="button" onclick="nextStep(2)">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
           </div>
         </div>
 
-        <!-- Terms & Consent Checkbox -->
-        <label class="terms-check" id="termsLabel" onclick="toggleTerms()">
-          <div class="terms-cbox" id="termsCbox"></div>
-          <span>I agree to the <a href="#terms-modal" onclick="openTerms(event)">Terms &amp; Conditions</a> and <a href="#terms-modal" onclick="openTerms(event)">Privacy Policy</a>. I consent to being contacted by a licensed insurance broker regarding my quote request. <span style="color:var(--cyan)">*</span></span>
-        </label>
-        <p class="terms-error" id="termsError" style="display:none">Please agree to the Terms &amp; Conditions to continue.</p>
+        <!-- STEP 3 -->
+        <div class="form-step" id="step3">
+          <div class="step-title">Step 3 of 3 &mdash; Where should we send your quote?</div>
+          <div class="fg-row">
+            <div class="fg" id="fg-fname">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" id="fname" name="fname" placeholder="John" autocomplete="given-name">
+              <div class="err-msg">Required.</div>
+            </div>
+            <div class="fg" id="fg-lname">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" autocomplete="family-name">
+              <div class="err-msg">Required.</div>
+            </div>
+          </div>
+          <div class="fg" id="fg-email">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="john@smithfiber.com" autocomplete="email">
+            <div class="err-msg">Please enter a valid email.</div>
+          </div>
+          <div class="fg" id="fg-phone">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel">
+            <div class="err-msg">Please enter a valid phone number.</div>
+          </div>
+          <label class="terms-check" id="termsLabel" onclick="toggleTerms()">
+            <div class="terms-cbox" id="termsCbox"></div>
+            <span>I agree to the <a href="/terms/" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy/" target="_blank">Privacy Policy</a>. I consent to being contacted by a licensed insurance broker. <span style="color:var(--cyan)">*</span></span>
+          </label>
+          <p class="terms-error" id="termsError" style="display:none">Please agree to the Terms &amp; Conditions to continue.</p>
+          <div class="btn-row">
+            <button class="btn-back" type="button" onclick="prevStep(3)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Back
+            </button>
+            <button class="btn-submit" type="button" onclick="handleSubmit()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Get My Quote
+            </button>
+          </div>
+          <p class="form-note">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure &amp; confidential. Your info is never sold to third parties.
+          </p>
+        </div>
 
-        <button class="submit-btn" type="button" onclick="handleSubmit()">
-          ⚡ Request My Quote
-        </button>
-        <p class="form-note">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Your information is secure and never sold to third parties. By submitting, you consent to contact from a licensed insurance broker.
-        </p>
-      </div>
+      </div><!-- /form-body -->
 
       <div class="success-state" id="successState">
         <div class="success-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <h3>Quote Request Received!</h3>
-        <p>Thank you! A licensed insurance broker specializing in fiber and network contractor coverage will review your submission and reach out with your personalized coverage options as quickly as possible.</p>
+        <p>A licensed broker specializing in fiber and telecom contractors will review your submission and reach out with your options as quickly as possible.</p>
       </div>
-    </form>
+
+    </div><!-- /form-card -->
   </div>
 </section>
 
@@ -2232,61 +2365,105 @@ function draw() {
 }
 draw();
 
-// ── TOGGLE CHECKBOXES ──
-function toggleCheck(e, el) {
-  e.preventDefault();
-  el.classList.toggle('on');
-  el.querySelector('input').checked = el.classList.contains('on');
+// ── MULTI-STEP FORM ──
+let currentStep = 1;
+let selectedTrade = '';
+
+function selectTrade(el) {
+  document.querySelectorAll('.trade-grid .trade-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTrade = el.dataset.value;
+  document.getElementById('tradeError').style.display = 'none';
+}
+
+function toggleCov(event, label) {
+  event.preventDefault();
+  label.classList.toggle('checked');
+  label.querySelector('input').checked = label.classList.contains('checked');
+}
+
+function setPip(num, state) {
+  const pip = document.getElementById('pip' + num);
+  pip.classList.remove('active', 'done');
+  if (state) pip.classList.add(state);
+}
+
+function showStep(n) {
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  currentStep = n;
+  for (let i = 1; i <= 3; i++) {
+    if (i < n) setPip(i, 'done');
+    else if (i === n) setPip(i, 'active');
+    else setPip(i, '');
+  }
+}
+
+function nextStep(from) {
+  if (from === 1) {
+    let valid = true;
+    if (!selectedTrade) { document.getElementById('tradeError').style.display = 'block'; valid = false; }
+    const stateEl = document.getElementById('state');
+    if (!stateEl.value) {
+      stateEl.closest('.fg').classList.add('error');
+      document.getElementById('stateErr').style.display = 'block';
+      valid = false;
+    } else {
+      stateEl.closest('.fg').classList.remove('error');
+      document.getElementById('stateErr').style.display = 'none';
+    }
+    if (!valid) return;
+  }
+  if (from === 2) {
+    const company = document.getElementById('company');
+    if (!company.value.trim()) { document.getElementById('fg-company').classList.add('error'); return; }
+    else { document.getElementById('fg-company').classList.remove('error'); }
+  }
+  showStep(from + 1);
+  document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function prevStep(from) {
+  showStep(from - 1);
+  document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ── FORM SUBMIT ──
 function handleSubmit() {
-  const required = ['fname', 'lname', 'company', 'email', 'phone', 'state', 'trade'];
   let valid = true;
-
-  required.forEach(id => {
-    const el = document.getElementById(id);
-    el.style.borderColor = '';
-    if (!el.value.trim()) {
-      el.style.borderColor = '#ff4444';
-      el.style.boxShadow = '0 0 0 3px rgba(255,68,68,0.15)';
-      valid = false;
-      el.addEventListener('input', () => {
-        el.style.borderColor = '';
-        el.style.boxShadow = '';
-      }, { once: true });
-    }
+  const fields = [
+    { id: 'fname', fgId: 'fg-fname', check: v => v.trim() !== '' },
+    { id: 'lname', fgId: 'fg-lname', check: v => v.trim() !== '' },
+    { id: 'email', fgId: 'fg-email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { id: 'phone', fgId: 'fg-phone', check: v => v.replace(/\D/g,'').length >= 10 }
+  ];
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    const fg = document.getElementById(f.fgId);
+    if (!f.check(el.value)) { fg.classList.add('error'); valid = false; }
+    else { fg.classList.remove('error'); }
   });
-
-  const checked = document.querySelectorAll('.cov-check.on');
-  if (checked.length === 0) {
-    document.querySelector('.cov-label-row').style.color = '#ff6b6b';
-    setTimeout(() => document.querySelector('.cov-label-row').style.color = '', 2500);
-    valid = false;
-  }
-
   if (!termsChecked) {
     document.getElementById('termsLabel').classList.add('error-state');
     document.getElementById('termsError').style.display = 'block';
-    document.getElementById('termsError').scrollIntoView({ behavior: 'smooth', block: 'center' });
     valid = false;
   }
-
   if (!valid) return;
 
-  const coverageSelected = [...checked].map(el => el.querySelector('input').value).join(', ');
-
+  const coverageSelected = [...document.querySelectorAll('.cov-check.checked input')].map(el => el.value).join(', ');
   const formData = new URLSearchParams({
     'form-name': 'quote-request',
+    'bot-field': '',
+    'trade': selectedTrade,
+    'state': document.getElementById('state').value,
+    'company': document.getElementById('company').value,
+    'employees': document.getElementById('employees').value,
+    'revenue': document.getElementById('revenue').value,
+    'coverage': coverageSelected,
     'fname': document.getElementById('fname').value,
     'lname': document.getElementById('lname').value,
-    'company': document.getElementById('company').value,
     'email': document.getElementById('email').value,
-    'phone': document.getElementById('phone').value,
-    'state': document.getElementById('state').value,
-    'revenue': document.getElementById('revenue').value,
-    'trade': document.getElementById('trade').value,
-    'coverage': coverageSelected
+    'phone': document.getElementById('phone').value
   });
 
   fetch('/', {
@@ -2296,12 +2473,35 @@ function handleSubmit() {
   })
   .then(() => {
     document.getElementById('formContent').style.display = 'none';
+    document.getElementById('stepProgress').style.display = 'none';
     document.getElementById('successState').style.display = 'block';
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', { event_category: 'Quote Form', event_label: 'Homepage' });
+    }
   })
-  .catch(() => {
-    alert('Something went wrong. Please try again.');
-  });
+  .catch(() => { alert('Something went wrong. Please try again.'); });
 }
+
+// Phone formatting
+document.getElementById('phone').addEventListener('input', function() {
+  let v = this.value.replace(/\D/g, '').substring(0, 10);
+  if (v.length >= 6) v = '(' + v.substring(0,3) + ') ' + v.substring(3,6) + '-' + v.substring(6);
+  else if (v.length >= 3) v = '(' + v.substring(0,3) + ') ' + v.substring(3);
+  this.value = v;
+});
+
+// Clear errors on input
+['fname','lname','email','phone','company'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', function() {
+    const fg = this.closest('.fg');
+    if (fg) fg.classList.remove('error');
+  });
+});
+document.getElementById('state').addEventListener('change', function() {
+  this.closest('.fg').classList.remove('error');
+  document.getElementById('stateErr').style.display = 'none';
+});
 
 // ── SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -2325,7 +2525,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.cov-card, .trade-card, .rev-card, .why-point, .step-item').forEach(el => {
+document.querySelectorAll('.cov-card, .trades-grid .trade-card, .rev-card, .why-point, .step-item').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';

@@ -222,6 +222,188 @@ footer{position:relative;z-index:1;background:var(--bg);border-top:1px solid var
   .nav-links a { font-size: 1.05rem !important; padding: 0.65rem 0; display: block; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .nav-cta { margin-top: 0.5rem; text-align: center; border-bottom: none !important; border-radius: 4px; }
 }
+
+/* ── MULTI-STEP FORM (upgraded) ── */
+.form-card {
+  position: relative; z-index: 1;
+  background: var(--panel);
+  border: 1px solid var(--border-blue);
+  border-radius: 10px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,102,255,0.1);
+}
+.form-card-header {
+  background: linear-gradient(135deg, var(--blue) 0%, #004cc4 100%);
+  padding: 1.5rem 1.75rem 1.25rem;
+}
+.form-card-header h2 {
+  font-family: 'Rajdhani', sans-serif; font-size: 1.35rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--white);
+  margin-bottom: 0.25rem;
+}
+.form-card-header p { font-size: 0.8rem; color: rgba(255,255,255,0.75); font-weight: 300; }
+.free-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: rgba(255,255,255,0.2); color: white;
+  font-family: 'Rajdhani', sans-serif; font-size: 0.68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem; border-radius: 3px; margin-bottom: 0.75rem;
+}
+.step-progress {
+  padding: 1.25rem 1.75rem 0;
+  display: flex; align-items: center; gap: 0; margin-bottom: 0.25rem;
+}
+.step-pip {
+  display: flex; flex-direction: column; align-items: center; flex: 1; position: relative;
+}
+.step-pip:not(:last-child)::after {
+  content: ''; position: absolute; top: 14px; left: 50%; right: -50%;
+  height: 2px; background: var(--border); z-index: 0; transition: background 0.3s;
+}
+.step-pip.done:not(:last-child)::after { background: var(--blue); }
+.step-circle {
+  width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Rajdhani', sans-serif; font-size: 0.8rem; font-weight: 700;
+  color: var(--text-soft); background: var(--panel2); z-index: 1; position: relative;
+  transition: all 0.3s;
+}
+.step-pip.active .step-circle { border-color: var(--cyan); color: var(--white); background: rgba(0,212,255,0.12); box-shadow: 0 0 12px rgba(0,212,255,0.3); }
+.step-pip.done .step-circle { border-color: var(--blue); background: var(--blue); color: white; }
+.step-label {
+  font-family: 'Rajdhani', sans-serif; font-size: 0.62rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-soft);
+  margin-top: 0.35rem; text-align: center; transition: color 0.3s;
+}
+.step-pip.active .step-label { color: var(--cyan); }
+.step-pip.done .step-label { color: var(--blue-bright); }
+.form-body { padding: 1.25rem 1.75rem 1.5rem; }
+.form-step { display: none; }
+.form-step.active { display: block; }
+.step-title {
+  font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--white);
+  margin-bottom: 1rem; padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.fg { margin-bottom: 1rem; }
+.fg label {
+  display: block; font-size: 0.72rem; font-weight: 500; color: var(--text-soft);
+  text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 0.4rem;
+}
+.fg .req { color: var(--cyan); }
+.fg input, .fg select {
+  width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 5px; padding: 0.7rem 0.875rem;
+  color: var(--white); font-family: 'Inter', sans-serif; font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none; -webkit-appearance: none;
+}
+.fg input::placeholder { color: var(--text-soft); opacity: 0.6; }
+.fg input:focus, .fg select:focus {
+  outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-glow);
+}
+.fg.error input, .fg.error select { border-color: #ff4757; box-shadow: 0 0 0 3px rgba(255,71,87,0.15); }
+.fg .err-msg { font-size: 0.72rem; color: #ff4757; margin-top: 0.3rem; display: none; }
+.fg.error .err-msg { display: block; }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 600px) { .fg-row { grid-template-columns: 1fr; } }
+.trade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1rem; }
+.trade-card {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.75rem 0.875rem;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: flex-start; gap: 0.625rem;
+}
+.trade-card:hover { border-color: rgba(0,102,255,0.4); background: rgba(0,102,255,0.05); }
+.trade-card.selected { border-color: var(--blue); background: rgba(0,102,255,0.1); box-shadow: 0 0 0 1px rgba(0,102,255,0.3); }
+.trade-card-icon { font-size: 1rem; line-height: 1; margin-top: 0.1rem; }
+.trade-card-label { font-size: 0.75rem; font-weight: 500; color: var(--text); line-height: 1.35; }
+.trade-card.selected .trade-card-label { color: var(--white); }
+.trade-error { font-size: 0.72rem; color: #ff4757; margin-bottom: 0.75rem; display: none; }
+.cov-label { font-size: 0.72rem; font-weight: 500; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 0.6rem; }
+.cov-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-bottom: 1rem; }
+.cov-check {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  border-radius: 5px; padding: 0.5rem 0.625rem; cursor: pointer;
+  transition: all 0.18s; user-select: none;
+}
+.cov-check:hover { border-color: rgba(0,102,255,0.35); }
+.cov-check.checked { border-color: var(--blue); background: rgba(0,102,255,0.08); }
+.cov-check input { display: none; }
+.cbox {
+  width: 16px; height: 16px; min-width: 16px; border-radius: 3px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  background: transparent; display: flex; align-items: center; justify-content: center;
+  transition: all 0.18s;
+}
+.cov-check.checked .cbox { background: var(--blue); border-color: var(--blue); }
+.cov-check.checked .cbox::after {
+  content: ''; display: block; width: 9px; height: 5px;
+  border-left: 2px solid white; border-bottom: 2px solid white;
+  transform: rotate(-45deg) translateY(-1px);
+}
+.cov-check span { font-size: 0.75rem; color: var(--text); }
+.cov-check.checked span { color: var(--white); }
+.terms-check {
+  display: flex; align-items: flex-start; gap: 0.625rem;
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  border-radius: 5px; padding: 0.75rem 0.875rem;
+  cursor: pointer; margin-bottom: 0.75rem; user-select: none;
+}
+.terms-check.error-state { border-color: #ff4757; }
+.terms-cbox {
+  width: 18px; height: 18px; min-width: 18px; border-radius: 3px;
+  border: 1.5px solid rgba(255,255,255,0.2); margin-top: 1px;
+  transition: all 0.18s; background: transparent;
+  display: flex; align-items: center; justify-content: center;
+}
+.terms-cbox.checked { background: var(--blue); border-color: var(--blue); }
+.terms-cbox.checked::after {
+  content: ''; display: block; width: 10px; height: 6px;
+  border-left: 2px solid white; border-bottom: 2px solid white;
+  transform: rotate(-45deg) translateY(-1px);
+}
+.terms-text { font-size: 0.72rem; color: var(--text-soft); line-height: 1.6; }
+.terms-text a { color: var(--cyan); text-decoration: none; }
+.terms-error { font-size: 0.72rem; color: #ff4757; margin-bottom: 0.75rem; display: none; }
+.btn-row { display: flex; gap: 0.75rem; }
+.btn-next, .btn-back, .btn-submit {
+  font-family: 'Rajdhani', sans-serif; font-size: 0.9rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  border: none; border-radius: 5px; cursor: pointer;
+  padding: 0.75rem 1.5rem; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-next, .btn-submit {
+  background: var(--blue); color: white; flex: 1;
+  justify-content: center; box-shadow: 0 4px 20px rgba(0,102,255,0.35);
+}
+.btn-next:hover, .btn-submit:hover { background: var(--blue-bright); box-shadow: 0 4px 28px rgba(0,102,255,0.55); transform: translateY(-1px); }
+.btn-back {
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  color: var(--text-soft); padding: 0.75rem 1.25rem;
+}
+.btn-back:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+.btn-submit { background: linear-gradient(135deg, var(--blue) 0%, #0052cc 100%); }
+.form-note {
+  font-size: 0.7rem; color: var(--text-soft); text-align: center;
+  margin-top: 0.875rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  line-height: 1.5;
+}
+.success-state {
+  display: none; text-align: center; padding: 2rem 1.75rem 2.5rem;
+}
+.success-icon {
+  width: 64px; height: 64px; background: rgba(0,230,118,0.1);
+  border: 2px solid rgba(0,230,118,0.3); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;
+}
+.success-state h3 {
+  font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 700;
+  text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem;
+}
+.success-state p { font-size: 0.875rem; color: var(--text-soft); line-height: 1.7; }
 </style>
 </head>
 <body>
@@ -269,41 +451,116 @@ footer{position:relative;z-index:1;background:var(--bg);border-top:1px solid var
     </div>
   </div>
 
-  <div class="quote-form-card">
-    <form name="quote-request-metronet" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="quote-request-metronet">
-      <input type="hidden" name="location" value="Metronet Subcontractor">
-      <input type="hidden" name="isp" value="Metronet">
-      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
-      <div class="form-top">
-        <h2>&#9889; Get Your Metronet-Compliant Quote</h2>
-        <div class="free-badge">No Obligation</div>
+  <div class="form-card">
+      <div class="form-card-header">
+        <div class="free-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          No Obligation &middot; No Commitment
+        </div>
+        <h2>Request My Quote</h2>
+        <p>3 quick steps &mdash; a specialist will follow up with your options</p>
       </div>
-      <div class="form-inner" id="formContent">
-        <p class="sub-text">Metronet subcontractors — tell us about your business and we'll get you compliant coverage with prompt COI naming Metronet as Additional Insured.</p>
-        <div class="two-col">
-          <div class="fg"><label>First Name <span class="req">*</span></label><input type="text" id="fname" name="fname" placeholder="John"/></div>
-          <div class="fg"><label>Last Name <span class="req">*</span></label><input type="text" id="lname" name="lname" placeholder="Smith"/></div>
+
+      <!-- Step progress -->
+      <div class="step-progress" id="stepProgress">
+        <div class="step-pip active" id="pip1">
+          <div class="step-circle">1</div>
+          <div class="step-label">Your Work</div>
         </div>
-        <div class="fg"><label>Business / Company Name <span class="req">*</span></label><input type="text" id="company" name="company" placeholder="Smith Fiber LLC"/></div>
-        <div class="two-col">
-          <div class="fg"><label>Email Address <span class="req">*</span></label><input type="email" id="email" name="email" placeholder="john@smithfiber.com"/></div>
-          <div class="fg"><label>Phone Number <span class="req">*</span></label><input type="tel" id="phone" name="phone" placeholder="(812) 000-0000"/></div>
+        <div class="step-pip" id="pip2">
+          <div class="step-circle">2</div>
+          <div class="step-label">Business</div>
         </div>
-        <div class="two-col">
+        <div class="step-pip" id="pip3">
+          <div class="step-circle">3</div>
+          <div class="step-label">Contact</div>
+        </div>
+      </div>
+
+      <!-- Hidden Netlify detection form -->
+      <form name="quote-request-metronet" data-netlify="true" netlify-honeypot="bot-field" style="display:none">
+        <input type="hidden" name="form-name" value="quote-request-metronet">
+        <input type="hidden" name="location" value="Metronet Subcontractor">
+        <input type="hidden" name="isp" value="Metronet">
+        <input name="bot-field">
+        <input name="trade">
+        <input name="state">
+        <input name="company">
+        <input name="revenue">
+        <input name="employees">
+        <input name="fname">
+        <input name="lname">
+        <input name="email">
+        <input name="phone">
+        <input name="coverage">
+      </form>
+
+      <div class="form-body" id="formContent">
+
+        <!-- STEP 1 -->
+        <div class="form-step active" id="step1">
+          <div class="step-title">Step 1 of 3 &mdash; What type of work do you do?</div>
+          <div id="tradeError" class="trade-error">Please select your primary trade.</div>
+          <div class="trade-grid" id="tradeGrid">
+            <div class="trade-card" data-value="Fiber Optic Installation (Aerial)" onclick="selectTrade(this)">
+              <div class="trade-card-icon">🔌</div>
+              <div class="trade-card-label">Fiber Installation (Aerial)</div>
+            </div>
+            <div class="trade-card" data-value="Fiber Optic Installation (Underground/OSP)" onclick="selectTrade(this)">
+              <div class="trade-card-icon">⛏️</div>
+              <div class="trade-card-label">Fiber Installation (Underground)</div>
+            </div>
+            <div class="trade-card" data-value="Fiber Splicing &amp; Testing" onclick="selectTrade(this)">
+              <div class="trade-card-icon">💡</div>
+              <div class="trade-card-label">Fiber Splicing &amp; Testing</div>
+            </div>
+            <div class="trade-card" data-value="ISP / Telecom Subcontractor" onclick="selectTrade(this)">
+              <div class="trade-card-icon">📡</div>
+              <div class="trade-card-label">ISP / Telecom Subcontractor</div>
+            </div>
+            <div class="trade-card" data-value="Low Voltage Installation" onclick="selectTrade(this)">
+              <div class="trade-card-icon">⚡</div>
+              <div class="trade-card-label">Low Voltage Installation</div>
+            </div>
+            <div class="trade-card" data-value="Multiple Fiber/Network Trades" onclick="selectTrade(this)">
+              <div class="trade-card-icon">🔧</div>
+              <div class="trade-card-label">Multiple Trades</div>
+            </div>
+          </div>
           <div class="fg">
-            <label>Metronet Market <span class="req">*</span></label>
-            <select id="state" name="market">
-              <option value="" disabled selected>Select market...</option>
-              <option>Indiana</option>
-              <option>Illinois</option>
-              <option>Ohio</option>
-              <option>Missouri</option>
-              <option>Wisconsin</option>
-              <option>Kentucky</option>
-              <option>Iowa</option>
-              <option>Michigan</option>
-              <option>Other Metronet State</option>
+            <label>State <span class="req">*</span></label>
+            <select id="state" name="state">
+              <option value="" disabled selected>Select your state...</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            </select>
+            <div class="err-msg" id="stateErr">Please select your state.</div>
+          </div>
+          <div class="btn-row">
+            <button class="btn-next" type="button" onclick="nextStep(1)">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step" id="step2">
+          <div class="step-title">Step 2 of 3 &mdash; Tell us about your business</div>
+          <div class="fg" id="fg-company">
+            <label>Business / Company Name <span class="req">*</span></label>
+            <input type="text" id="company" name="company" placeholder="Smith Fiber LLC" autocomplete="organization">
+            <div class="err-msg">Please enter your company name.</div>
+          </div>
+          <div class="fg">
+            <label>Number of Employees</label>
+            <select id="employees" name="employees">
+              <option value="" disabled selected>Select range...</option>
+              <option>Just me (solo)</option>
+              <option>2&#8211;5</option>
+              <option>6&#8211;10</option>
+              <option>11&#8211;25</option>
+              <option>26&#8211;50</option>
+              <option>50+</option>
             </select>
           </div>
           <div class="fg">
@@ -311,53 +568,118 @@ footer{position:relative;z-index:1;background:var(--bg);border-top:1px solid var
             <select id="revenue" name="revenue">
               <option value="" disabled selected>Select range...</option>
               <option>Under $100,000</option>
-              <option>$100K – $250K</option>
-              <option>$250K – $500K</option>
-              <option>$500K – $1M</option>
-              <option>$1M – $5M</option>
+              <option>$100K &#8211; $250K</option>
+              <option>$250K &#8211; $500K</option>
+              <option>$500K &#8211; $1M</option>
+              <option>$1M &#8211; $5M</option>
               <option>Over $5M</option>
             </select>
           </div>
-        </div>
-        <div class="fg">
-          <label>Primary Trade <span class="req">*</span></label>
-          <select id="trade" name="trade">
-            <option value="" disabled selected>Select your trade...</option>
-            <option>Fiber Optic Installation (Aerial)</option>
-            <option>Fiber Optic Installation (Underground/OSP)</option>
-            <option>Fiber Splicing &amp; Testing</option>
-            <option>FTTH Drop Installation</option>
-            <option>Metronet OSP Subcontractor</option>
-            <option>ISP / Telecom Subcontractor</option>
-            <option>Multiple Fiber/Network Trades</option>
-          </select>
-        </div>
-        <div class="fg">
-          <div class="cov-label-row">Coverage Needed <span style="color:var(--cyan)">*</span></div>
-          <div class="cov-checks">
-            <label class="cov-check" onclick="toggleCheck(event,this)"><input type="checkbox" name="coverage" value="General Liability"><div class="cbox"></div><span>General Liability</span></label>
-            <label class="cov-check" onclick="toggleCheck(event,this)"><input type="checkbox" name="coverage" value="Workers Compensation"><div class="cbox"></div><span>Workers' Comp</span></label>
-            <label class="cov-check" onclick="toggleCheck(event,this)"><input type="checkbox" name="coverage" value="Commercial Auto"><div class="cbox"></div><span>Commercial Auto</span></label>
-            <label class="cov-check" onclick="toggleCheck(event,this)"><input type="checkbox" name="coverage" value="Umbrella"><div class="cbox"></div><span>Umbrella</span></label>
-            <label class="cov-check" onclick="toggleCheck(event,this)"><input type="checkbox" name="coverage" value="Inland Marine"><div class="cbox"></div><span>Inland Marine</span></label>
-            <label class="cov-check" onclick="toggleCheck(event,this)"><input type="checkbox" name="coverage" value="Additional Insured COI"><div class="cbox"></div><span>Metronet AI COI</span></label>
+          <div class="fg">
+            <div class="cov-label">Coverage Needed <span style="color:var(--cyan)">*</span></div>
+            <div class="cov-checks">
+              <label class="cov-check checked" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="General Liability" checked>
+                <div class="cbox"></div>
+                <span>General Liability</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Workers Compensation">
+                <div class="cbox"></div>
+                <span>Workers&#39; Comp</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Commercial Auto">
+                <div class="cbox"></div>
+                <span>Commercial Auto</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Umbrella">
+                <div class="cbox"></div>
+                <span>Umbrella</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Inland Marine">
+                <div class="cbox"></div>
+                <span>Inland Marine</span>
+              </label>
+              <label class="cov-check" onclick="toggleCov(event,this)">
+                <input type="checkbox" name="coverage" value="Bonds">
+                <div class="cbox"></div>
+                <span>Bonds</span>
+              </label>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button class="btn-back" type="button" onclick="prevStep(2)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Back
+            </button>
+            <button class="btn-next" type="button" onclick="nextStep(2)">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
           </div>
         </div>
-        <label class="terms-check" id="termsLabel" onclick="toggleTerms()">
-          <div class="terms-cbox" id="termsCbox"></div>
-          <span>I agree to the Terms &amp; Conditions and Privacy Policy. I consent to being contacted by a licensed insurance broker. <span style="color:var(--cyan)">*</span></span>
-        </label>
-        <p class="terms-error" id="termsError" style="display:none">Please agree to the Terms &amp; Conditions to continue.</p>
-        <button class="submit-btn" type="button" onclick="handleSubmit()">&#9889; Get My Metronet-Compliant Quote</button>
-        <p class="form-note"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Your information is secure and never sold to third parties.</p>
-      </div>
+
+        <!-- STEP 3 -->
+        <div class="form-step" id="step3">
+          <div class="step-title">Step 3 of 3 &mdash; Where should we send your quote?</div>
+          <div class="fg-row">
+            <div class="fg" id="fg-fname">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" id="fname" name="fname" placeholder="John" autocomplete="given-name">
+              <div class="err-msg">Required.</div>
+            </div>
+            <div class="fg" id="fg-lname">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" autocomplete="family-name">
+              <div class="err-msg">Required.</div>
+            </div>
+          </div>
+          <div class="fg" id="fg-email">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="john@smithfiber.com" autocomplete="email">
+            <div class="err-msg">Please enter a valid email.</div>
+          </div>
+          <div class="fg" id="fg-phone">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel">
+            <div class="err-msg">Please enter a valid phone number.</div>
+          </div>
+          <label class="terms-check" id="termsLabel" onclick="toggleTerms()">
+            <div class="terms-cbox" id="termsCbox"></div>
+            <span class="terms-text">I agree to the <a href="/terms/" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy/" target="_blank">Privacy Policy</a>. I consent to being contacted by a licensed insurance broker. <span style="color:var(--cyan)">*</span></span>
+          </label>
+          <p class="terms-error" id="termsError" style="display:none">Please agree to the Terms &amp; Conditions to continue.</p>
+          <div class="btn-row">
+            <button class="btn-back" type="button" onclick="prevStep(3)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Back
+            </button>
+            <button class="btn-submit" type="button" onclick="handleSubmit()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Get My Quote
+            </button>
+          </div>
+          <p class="form-note">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure &amp; confidential. Your info is never sold to third parties.
+          </p>
+        </div>
+
+      </div><!-- /form-body -->
+
+      <!-- Success -->
       <div class="success-state" id="successState">
-        <div class="success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
         <h3>Quote Request Received!</h3>
-        <p>A licensed broker specializing in Metronet subcontractor coverage will reach out with compliant options — including prompt COI naming Metronet as Additional Insured.</p>
+        <p>A licensed insurance broker specializing in fiber and telecom contractors will review your submission and reach out with personalized coverage options as quickly as possible.</p>
       </div>
-    </form>
-  </div>
+
+    </div>
 </section>
 
 <section class="section section-alt" id="coverage">
@@ -545,11 +867,172 @@ const canvas=document.getElementById('fiber-bg');const ctx=canvas.getContext('2d
 function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}resize();window.addEventListener('resize',resize);
 const fibers=[];for(let i=0;i<18;i++){fibers.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,angle:Math.random()*Math.PI*2,speed:0.3+Math.random()*0.5,len:80+Math.random()*180,hue:Math.random()<0.5?210:190,opacity:0.3+Math.random()*0.5,thickness:1+Math.random()*1.5,pulse:Math.random()*Math.PI*2,pulseSpeed:0.02+Math.random()*0.02});}
 function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);fibers.forEach(f=>{f.x+=Math.cos(f.angle)*f.speed;f.y+=Math.sin(f.angle)*f.speed;f.pulse+=f.pulseSpeed;if(f.x<-200)f.x=canvas.width+200;if(f.x>canvas.width+200)f.x=-200;if(f.y<-200)f.y=canvas.height+200;if(f.y>canvas.height+200)f.y=-200;const alpha=f.opacity*(0.6+0.4*Math.sin(f.pulse));const ex=f.x+Math.cos(f.angle)*f.len;const ey=f.y+Math.sin(f.angle)*f.len;const grad=ctx.createLinearGradient(f.x,f.y,ex,ey);grad.addColorStop(0,`hsla(${f.hue},100%,65%,0)`);grad.addColorStop(0.5,`hsla(${f.hue},100%,65%,${alpha})`);grad.addColorStop(1,`hsla(${f.hue},100%,65%,0)`);ctx.beginPath();ctx.moveTo(f.x,f.y);ctx.lineTo(ex,ey);ctx.strokeStyle=grad;ctx.lineWidth=f.thickness;ctx.stroke();ctx.beginPath();ctx.arc(f.x+Math.cos(f.angle)*f.len*0.5,f.y+Math.sin(f.angle)*f.len*0.5,f.thickness*1.5,0,Math.PI*2);ctx.fillStyle=`hsla(${f.hue},100%,80%,${alpha*0.8})`;ctx.fill();});requestAnimationFrame(draw);}draw();
-let termsChecked=false;
-function toggleTerms(){termsChecked=!termsChecked;const l=document.getElementById('termsLabel');if(termsChecked){l.classList.add('checked');l.classList.remove('error-state');document.getElementById('termsError').style.display='none';}else{l.classList.remove('checked');}}
-function toggleCheck(e,el){e.preventDefault();el.classList.toggle('on');el.querySelector('input').checked=el.classList.contains('on');}
-function handleSubmit(){const req=['fname','lname','company','email','phone','state','trade'];let valid=true;req.forEach(id=>{const el=document.getElementById(id);el.style.borderColor='';if(!el.value.trim()){el.style.borderColor='#ff4444';el.style.boxShadow='0 0 0 3px rgba(255,68,68,0.15)';valid=false;el.addEventListener('input',()=>{el.style.borderColor='';el.style.boxShadow='';},{once:true});}});const checked=document.querySelectorAll('.cov-check.on');if(checked.length===0){document.querySelector('.cov-label-row').style.color='#ff6b6b';setTimeout(()=>document.querySelector('.cov-label-row').style.color='',2500);valid=false;}if(!termsChecked){document.getElementById('termsLabel').classList.add('error-state');document.getElementById('termsError').style.display='block';valid=false;}if(!valid)return;const coverageSelected=[...checked].map(el=>el.querySelector('input').value).join(', ');const formData=new URLSearchParams({'form-name':'quote-request-metronet','location':'Metronet Subcontractor','isp':'Metronet','fname':document.getElementById('fname').value,'lname':document.getElementById('lname').value,'company':document.getElementById('company').value,'email':document.getElementById('email').value,'phone':document.getElementById('phone').value,'market':document.getElementById('state').value,'revenue':document.getElementById('revenue').value,'trade':document.getElementById('trade').value,'coverage':coverageSelected});fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:formData.toString()}).then(()=>{document.getElementById('formContent').style.display='none';document.getElementById('successState').style.display='block';}).catch(()=>{alert('Something went wrong. Please try again.');});}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+// ── MULTI-STEP FORM ──
+let currentStep = 1;
+let selectedTrade = '';
+let termsChecked = false;
+
+function selectTrade(el) {
+  document.querySelectorAll('.trade-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTrade = el.dataset.value;
+  document.getElementById('tradeError').style.display = 'none';
+}
+
+function toggleCov(event, label) {
+  event.preventDefault();
+  label.classList.toggle('checked');
+  label.querySelector('input').checked = label.classList.contains('checked');
+}
+
+function toggleTerms() {
+  termsChecked = !termsChecked;
+  const cbox = document.getElementById('termsCbox');
+  const label = document.getElementById('termsLabel');
+  if (termsChecked) {
+    cbox.classList.add('checked');
+    label.classList.remove('error-state');
+    document.getElementById('termsError').style.display = 'none';
+  } else {
+    cbox.classList.remove('checked');
+  }
+}
+
+function setPip(num, state) {
+  const pip = document.getElementById('pip' + num);
+  pip.classList.remove('active', 'done');
+  if (state) pip.classList.add(state);
+}
+
+function showStep(n) {
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  currentStep = n;
+  for (let i = 1; i <= 3; i++) {
+    if (i < n) setPip(i, 'done');
+    else if (i === n) setPip(i, 'active');
+    else setPip(i, '');
+  }
+}
+
+function nextStep(from) {
+  if (from === 1) {
+    let valid = true;
+    if (!selectedTrade) {
+      document.getElementById('tradeError').style.display = 'block';
+      valid = false;
+    }
+    const stateEl = document.getElementById('state');
+    if (!stateEl.value) {
+      stateEl.closest('.fg').classList.add('error');
+      document.getElementById('stateErr').style.display = 'block';
+      valid = false;
+    } else {
+      stateEl.closest('.fg').classList.remove('error');
+      document.getElementById('stateErr').style.display = 'none';
+    }
+    if (!valid) return;
+  }
+  if (from === 2) {
+    const company = document.getElementById('company');
+    const fg = document.getElementById('fg-company');
+    if (!company.value.trim()) {
+      fg.classList.add('error');
+      return;
+    } else {
+      fg.classList.remove('error');
+    }
+  }
+  showStep(from + 1);
+  document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function prevStep(from) {
+  showStep(from - 1);
+  document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function handleSubmit() {
+  let valid = true;
+  const fields = [
+    { id: 'fname', fgId: 'fg-fname', check: v => v.trim() !== '' },
+    { id: 'lname', fgId: 'fg-lname', check: v => v.trim() !== '' },
+    { id: 'email', fgId: 'fg-email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { id: 'phone', fgId: 'fg-phone', check: v => v.replace(/\D/g,'').length >= 10 }
+  ];
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    const fg = document.getElementById(f.fgId);
+    if (!f.check(el.value)) { fg.classList.add('error'); valid = false; }
+    else { fg.classList.remove('error'); }
+  });
+  if (!termsChecked) {
+    document.getElementById('termsLabel').classList.add('error-state');
+    document.getElementById('termsError').style.display = 'block';
+    valid = false;
+  }
+  if (!valid) return;
+
+  const coverageSelected = [...document.querySelectorAll('.cov-check.checked input')].map(el => el.value).join(', ');
+  const formData = new URLSearchParams({
+    'form-name': 'quote-request-metronet',
+    'bot-field': '',
+    'trade': selectedTrade,
+    'state': document.getElementById('state').value,
+    'company': document.getElementById('company').value,
+    'employees': document.getElementById('employees').value,
+    'revenue': document.getElementById('revenue').value,
+    'coverage': coverageSelected,
+    'fname': document.getElementById('fname').value,
+    'lname': document.getElementById('lname').value,
+    'email': document.getElementById('email').value,
+    'phone': document.getElementById('phone').value
+  });
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: formData.toString()
+  })
+  .then(() => {
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('stepProgress').style.display = 'none';
+    document.getElementById('successState').style.display = 'block';
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', { event_category: 'Quote Form', event_label: 'quote-request-metronet' });
+    }
+  })
+  .catch(() => { alert('Something went wrong. Please try again.'); });
+}
+
+// Phone formatting
+document.getElementById('phone').addEventListener('input', function() {
+  let v = this.value.replace(/\D/g, '').substring(0, 10);
+  if (v.length >= 6) v = '(' + v.substring(0,3) + ') ' + v.substring(3,6) + '-' + v.substring(6);
+  else if (v.length >= 3) v = '(' + v.substring(0,3) + ') ' + v.substring(3);
+  this.value = v;
+});
+
+// Clear errors on input
+['fname','lname','email','phone','company'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', function() {
+    const fg = this.closest('.fg');
+    if (fg) fg.classList.remove('error');
+  });
+});
+document.getElementById('state').addEventListener('change', function() {
+  this.closest('.fg').classList.remove('error');
+  document.getElementById('stateErr').style.display = 'none';
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
 </script>
 </body>
 </html>

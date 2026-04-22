@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /
+Disallow: /privacy/
+Disallow: /terms/
 
 Sitemap: https://www.fibercontractorinsurance.com/sitemap.xml

@@ -61,7 +61,7 @@
       "name": "What are Crown Castle's insurance requirements for subcontractors?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Crown Castle's base requirements for all contractors are: General Liability $1M each occurrence / $2M general aggregate / $2M products-completed operations aggregate; Commercial Auto $1M CSL; Workers Compensation at statutory limits. Construction and Turnkey contractors additionally require $5M Umbrella/Excess and Employers Liability $1M each accident / $1M disease each employee / $1M disease policy limit. All policies must include additional insured endorsements (CG 20 10 or CG 20 26 for ongoing ops, CG 20 37 for completed ops), waiver of subrogation, primary and non-contributory language, and 30-day notice of cancellation. COIs must be submitted through Avetta."
+        "text": "Crown Castle's base requirements for all contractors: General Liability $1M each occurrence / $2M general aggregate / $2M products-completed operations aggregate; Commercial Auto $1M CSL; Workers Compensation at statutory limits. Requirements then vary significantly by agreement type. Construction and Turnkey contractors additionally require $5M Umbrella/Excess and Employers Liability $1M/$1M/$1M. Professional Liability or E&O ($1M/$1M) is required for A&E, DAS, structural, inspection, and elevated work services ($2M/$2M for environmental). Contractors Pollution Liability and Environmental Liability ($2M/$2M each) are required for remediation agreements. UAV Liability ($5M/$5M) is required for drone/UAS services. Crown Castle's own advisory states: 'Our insurance requirements are complex. Your insurance broker should be involved from the beginning.' COIs and full policy documents must be submitted through Avetta."
       }
     },
     {
@@ -801,7 +801,87 @@ footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px 
 <section class="section section-alt" id="coverage">
   <div class="eyebrow">Crown Castle Coverage Requirements</div>
   <h2 class="section-heading">Insurance Coverage Crown Castle Requires from Subcontractors</h2>
-  <p class="section-sub">Crown Castle's MSA requires specific limits, endorsements, and COI language before subcontractors can mobilize. Here's what you need &mdash; and why each coverage matters for Crown Castle work.</p>
+  <p class="section-sub">Crown Castle's MSA requires specific limits, endorsements, and COI language before subcontractors can mobilize. Requirements vary by your agreement type — what a fiber installation crew needs is different from what a structural engineer, drone operator, or remediation contractor needs.</p>
+
+  <!-- COMPLEXITY NOTICE -->
+  <div style="background:rgba(255,107,0,0.08);border:1px solid rgba(255,107,0,0.4);border-left:4px solid var(--orange);border-radius:6px;padding:1.5rem 1.75rem;margin-bottom:2.5rem;max-width:900px;">
+    <div style="display:flex;align-items:flex-start;gap:1rem;">
+      <svg style="flex-shrink:0;margin-top:2px;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6b00" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div>
+        <p style="font-family:'Rajdhani',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--orange);margin-bottom:0.5rem;">Crown Castle's Own Advisory — Straight from Their Insurance Requirements Document</p>
+        <p style="font-size:0.92rem;color:var(--text);line-height:1.75;margin-bottom:0.75rem;"><em style="color:var(--white);">"Our insurance requirements are complex. Your insurance broker should be involved from the beginning. You should be aware there may be exclusions or provisions in your policies that do not comply with our Services Master Agreement. You cannot qualify or remain active as a Crown Castle vendor/contractor if your policies do not comply with our requirements. Ensure you know the agreement(s) you are qualifying for as different requirements apply."</em></p>
+        <p style="font-size:0.85rem;color:var(--text-soft);line-height:1.7;">Requirements below show the <strong style="color:var(--text);">base coverages</strong> required of all contractors, plus the <strong style="color:var(--text);">agreement-specific coverages</strong> that apply depending on your work type. Professional Liability / E&amp;O, Contractors Pollution Liability, and UAV Liability <strong style="color:var(--white);">may be required</strong> depending on your Crown Castle agreement. Your specific agreement type determines exactly what is required &mdash; contact your sponsor or Crown Castle Risk Management at <span style="color:var(--cyan);">vendorcoi@crowncastle.com</span> to confirm.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGREEMENT-TYPE REQUIREMENTS TABLE -->
+  <div style="margin-bottom:3rem;max-width:900px;overflow-x:auto;">
+    <p style="font-family:'Rajdhani',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cyan);margin-bottom:1rem;">Agreement-Specific Requirements at a Glance</p>
+    <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+      <thead>
+        <tr style="background:var(--panel2);">
+          <th style="padding:0.65rem 0.9rem;text-align:left;color:var(--text-soft);font-weight:600;letter-spacing:0.05em;border-bottom:1px solid var(--border-blue);white-space:nowrap;">Agreement Type</th>
+          <th style="padding:0.65rem 0.9rem;text-align:center;color:var(--text-soft);font-weight:600;letter-spacing:0.05em;border-bottom:1px solid var(--border-blue);">E&amp;O / Prof. Liability</th>
+          <th style="padding:0.65rem 0.9rem;text-align:center;color:var(--text-soft);font-weight:600;letter-spacing:0.05em;border-bottom:1px solid var(--border-blue);">Umbrella $5M</th>
+          <th style="padding:0.65rem 0.9rem;text-align:center;color:var(--text-soft);font-weight:600;letter-spacing:0.05em;border-bottom:1px solid var(--border-blue);">Pollution / Env.</th>
+          <th style="padding:0.65rem 0.9rem;text-align:center;color:var(--text-soft);font-weight:600;letter-spacing:0.05em;border-bottom:1px solid var(--border-blue);">UAV / Drone</th>
+          <th style="padding:0.65rem 0.9rem;text-align:center;color:var(--text-soft);font-weight:600;letter-spacing:0.05em;border-bottom:1px solid var(--border-blue);">EL Limits</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0.9rem;color:var(--white);font-weight:500;">Turnkey / Construction</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--cyan);">✓ $5M/$5M</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text);font-size:0.78rem;">$1M / $1M / $1M</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
+          <td style="padding:0.6rem 0.9rem;color:var(--white);font-weight:500;">A&amp;E / DAS / Structural / Inspection / Elevated Work</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--cyan);">✓ $1M/$1M</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--cyan);">✓ $5M/$5M*</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text);font-size:0.78rem;">$100K / $100K / $500K</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0.9rem;color:var(--white);font-weight:500;">Environmental Services (Phase 1 &amp; 2 / NEPA)</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--cyan);">✓ $2M/$2M</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text);font-size:0.78rem;">$100K / $100K / $500K</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
+          <td style="padding:0.6rem 0.9rem;color:var(--white);font-weight:500;">Environmental Services (Remediation)</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--cyan);">✓ $2M/$2M</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--cyan);">✓ $2M/$2M</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text);font-size:0.78rem;">$100K / $100K / $500K</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.6rem 0.9rem;color:var(--white);font-weight:500;">UAS / Drone Services</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--cyan);">✓ $5M/$5M</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text);font-size:0.78rem;">$100K / $100K / $500K</td>
+        </tr>
+        <tr style="background:rgba(255,255,255,0.02);">
+          <td style="padding:0.6rem 0.9rem;color:var(--white);font-weight:500;">Maintenance / General Professional</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text-soft);">—</td>
+          <td style="padding:0.6rem 0.9rem;text-align:center;color:var(--text);font-size:0.78rem;">$100K / $100K / $500K</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.72rem;color:var(--text-soft);margin-top:0.75rem;">* Umbrella required for Modification/Construction Inspection and Elevated Work Services. All agreement types also require base GL ($1M/$2M), Auto ($1M CSL), and Workers Comp (statutory). Table is a general guide — verify your specific requirements with your Crown Castle sponsor.</p>
+  </div>
 
   <div class="cov-grid">
     <div class="cov-card">
@@ -839,6 +919,27 @@ footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px 
       <h3>Contractor Bonds</h3>
       <p>Performance bonds and payment bonds required on some Crown Castle public right-of-way projects and municipal small cell permits. License bonds also available to meet state contractor licensing requirements.</p>
       <div class="cov-tags"><span class="cov-tag">Performance Bonds</span><span class="cov-tag">Payment Bonds</span><span class="cov-tag">License Bonds</span></div>
+    </div>
+    <div class="cov-card" style="border-color:rgba(255,107,0,0.35);">
+      <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.3);color:var(--orange);font-family:'Rajdhani',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.2rem 0.6rem;border-radius:2px;margin-bottom:0.75rem;">Agreement-Specific</div>
+      <div class="cov-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+      <h3>Professional Liability / E&amp;O</h3>
+      <p>Required for A&amp;E services, DAS, pole and tower structural analysis, regulatory services, inspection, and elevated work services. Limits are $1M/$1M for most professional agreements and $2M/$2M for environmental services. Requires waiver of subrogation and 30-day notice of cancellation — no standard ISO form, a separate endorsement or policy document is required.</p>
+      <div class="cov-tags"><span class="cov-tag">$1M/$1M (A&amp;E/Structural)</span><span class="cov-tag">$2M/$2M (Environmental)</span><span class="cov-tag">Inspection &amp; Elevated Work</span></div>
+    </div>
+    <div class="cov-card" style="border-color:rgba(255,107,0,0.35);">
+      <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.3);color:var(--orange);font-family:'Rajdhani',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.2rem 0.6rem;border-radius:2px;margin-bottom:0.75rem;">Agreement-Specific</div>
+      <div class="cov-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <h3>Contractors Pollution Liability</h3>
+      <p>Required for environmental remediation agreement types at $2M each occurrence / $2M aggregate, along with Environmental Liability coverage at the same limits. Requires additional insured, waiver of subrogation, primary &amp; non-contributory, and 30-day notice — no standard ISO form available, a separate endorsement or policy document is required.</p>
+      <div class="cov-tags"><span class="cov-tag">$2M/$2M Required</span><span class="cov-tag">Remediation Agreements</span><span class="cov-tag">+ Environmental Liability</span></div>
+    </div>
+    <div class="cov-card" style="border-color:rgba(255,107,0,0.35);">
+      <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.3);color:var(--orange);font-family:'Rajdhani',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.2rem 0.6rem;border-radius:2px;margin-bottom:0.75rem;">Agreement-Specific</div>
+      <div class="cov-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <h3>UAV / Drone Liability</h3>
+      <p>Required for UAS (Unmanned Aircraft Systems) / drone services at $5M each occurrence / $5M aggregate. The aircraft liability additional insured endorsement must cover "all aircraft owned or operated by or on behalf of named insured." Requires additional insured, waiver of subrogation, primary &amp; non-contributory, and 30-day notice — no standard ISO form, separate endorsement required.</p>
+      <div class="cov-tags"><span class="cov-tag">$5M/$5M Required</span><span class="cov-tag">UAS/Drone Agreements</span><span class="cov-tag">All Aircraft Covered</span></div>
     </div>
   </div>
 </section>
@@ -919,11 +1020,13 @@ footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px 
 
     <div class="why-visual">
       <div style="font-family:'Rajdhani',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cyan);margin-bottom:1.5rem;">Crown Castle COI Requirements</div>
-      <div class="data-row"><span class="label">General Liability</span><span class="value cyan">$1M / $2M Agg</span></div>
-      <div class="data-row"><span class="label">Workers' Comp</span><span class="value">Statutory (All States)</span></div>
-      <div class="data-row"><span class="label">Employers' Liability</span><span class="value">$1M/$1M/$1M (Construction)</span></div>
-      <div class="data-row"><span class="label">Commercial Auto</span><span class="value">$1M CSL</span></div>
-      <div class="data-row"><span class="label">Umbrella / Excess</span><span class="value blue">$5M / $5M (Construction)</span></div>
+      <div class="data-row"><span class="label">General Liability</span><span class="value cyan">$1M / $2M Agg (All)</span></div>
+      <div class="data-row"><span class="label">Workers' Comp</span><span class="value">Statutory (All)</span></div>
+      <div class="data-row"><span class="label">Employers' Liability</span><span class="value">Varies by Agreement</span></div>
+      <div class="data-row"><span class="label">Commercial Auto</span><span class="value">$1M CSL (All)</span></div>
+      <div class="data-row"><span class="label">Umbrella / Excess</span><span class="value blue">$5M (Construction/Turnkey)</span></div>
+      <div class="data-row"><span class="label">Prof. Liability / E&amp;O</span><span class="value">Agreement-Specific</span></div>
+      <div class="data-row"><span class="label">UAV / Pollution Liability</span><span class="value">Agreement-Specific</span></div>
       <div class="data-row"><span class="label">COI Submission</span><span class="value">via Avetta Portal</span></div>
       <div class="data-row"><span class="label">Quote Timeline</span><span class="value">1&ndash;2 Weeks (Typical)</span></div>
     </div>
@@ -995,7 +1098,8 @@ footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px 
       <summary style="font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:0.03em;list-style:none;">What are Crown Castle's insurance requirements for subcontractors?</summary>
       <p style="margin-top:1rem;color:var(--text);font-size:0.92rem;line-height:1.75;">Crown Castle's base requirements for all contractors: General Liability $1M each occurrence / $2M general aggregate / $2M products-completed operations aggregate; Commercial Auto $1M CSL; Workers' Compensation at statutory limits.</p>
       <p style="margin-top:0.75rem;color:var(--text);font-size:0.92rem;line-height:1.75;"><strong style="color:var(--white)">Construction &amp; Turnkey contractors</strong> additionally require: Umbrella/Excess $5M/$5M and Employers' Liability $1M each accident / $1M disease each employee / $1M disease policy limit.</p>
-      <p style="margin-top:0.75rem;color:var(--text);font-size:0.92rem;line-height:1.75;">COIs and policy documents must be submitted through Crown Castle's vendor portal <strong style="color:var(--cyan)">Avetta</strong>. Certificate holder: Crown Castle c/o Avetta, PO Box 51387, Irvine, CA 92619.</p>
+      <p style="margin-top:0.75rem;color:var(--text);font-size:0.92rem;line-height:1.75;"><strong style="color:var(--white)">Agreement-specific coverages</strong> that may also be required depending on your work type: Professional Liability / E&amp;O ($1M/$1M for A&amp;E, structural, inspection, and elevated work; $2M/$2M for environmental services); Contractors Pollution Liability and Environmental Liability ($2M/$2M each, for remediation agreements); UAV / Drone Liability ($5M/$5M for UAS/drone service agreements). Employers' Liability limits also vary — $1M/$1M/$1M for Turnkey/Construction, vs $100K/$100K/$500K for all other agreement types.</p>
+      <p style="margin-top:0.75rem;color:var(--text);font-size:0.92rem;line-height:1.75;">COIs and policy documents must be submitted through Crown Castle's vendor portal <strong style="color:var(--cyan)">Avetta</strong>. Certificate holder: Crown Castle c/o Avetta, PO Box 51387, Irvine, CA 92619. Crown Castle's own guidance: <em>"Ensure you know the agreement(s) you are qualifying for as different requirements apply. Contact your sponsor to clarify any uncertainty."</em></p>
     </details>
 
     <details style="background:var(--panel);border:1px solid var(--border-blue);border-radius:8px;padding:1.5rem;cursor:pointer;">
